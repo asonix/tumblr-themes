@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8">
+
+    <meta name="color:header background" content="#2d2d2d" />
+    <meta name="color:header text" content="#e5e5e5" />
+    <meta name="color:accent" content="#d64937" />
+    <meta name="color:page background" content="#dedede" />
+    <meta name="color:page text" content="#202020" />
+    <meta name="color:button hover" content="#c0c0c0" />
+    <meta name="color:text button click" content="#000000" />
+
+    <meta name="color:post separator" content="#999999" />
+    <meta name="color:chat odd" content="#2d2d2d" />
+    <meta name="color:chat even" content="#ae4b33" />
+    <meta name="color:links" content="#d64937" />
+    <meta name="color:links hover" content="#d64937" />
+    <meta name="color:links visited" content="#d64937" />
+    <meta name="color:footer background" content="#444444" />
+    <meta name="color:footer text" content="#999999" />
+    <meta name="color:link text" content="#d64937" />
+
+    <meta name="if:htwo exists" content="0" />
+    <meta name="text:heading two" content="Lorem" />
+
+    <meta name="if:hthree exists" content="0" />
+    <meta name="text:heading three" content="Ipsum" />
+
+    <meta name="if:hfour exists" content="0" />
+    <meta name="text:heading four" content="Dolor" />
+
+    <meta name="if:hfive exists" content="0" />
+    <meta name="text:heading five" content="Sit" />
+
+    <meta name="if:hsix exists" content="0" />
+    <meta name="text:heading six" content="Amet" />
+
+    <meta name="text:Content 2" content="Lorem" />
+    <meta name="text:Content 3" content="Ipsum" />
+    <meta name="text:Content 4" content="Dolor" />
+    <meta name="text:Content 5" content="Sit" />
+    <meta name="text:Content 6" content="Amet" />
+
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+    <style>
+    html,
+    body {
+      position: relative;
+      margin: 0px;
+      padding: 0px;
+      background-color: {color:page background};
+      color: {color:page text};
+      height: 100%;
+      min-width: 550px;
+      font-family: Droid Sans, sans-serif;
+    }
+    .wrapper {
+      position: relative;
+      min-height: 100%;
+    }
+    header {
+      background-color: {color:header background};
+      width: 100%;
+      padding-top: 1em;
+      color: {color:header text};
+    }
+    header h1 {
+      position: relative;
+      margin: 0px;
+      padding: .5em 50px;
+      margin-bottom: 5px;
+    }
+    button {
+      font-size: inherit;
+      background-color: transparent;
+      color: {color:page background};
+      padding: 5px 15px;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      margin: 0px;
+    }
+    button:hover {
+      background-color: {color:button hover};
+      color: {color:header background};
+    }
+    .selected {
+      background-color: {color:page background};
+      color: {color:page text};
+      border-bottom: solid 2px {color:page background};
+      margin-bottom: -2px;
+    }
+    .selected:hover {
+      background-color: {color:page background};
+      color: {color:header background};
+    }
+    button:active {
+      color: {color:text button hover};
+    }
+    #description {
+      font-size: .5em;
+      font-weight: normal;
+    }
+    nav {
+      background-color: {color:header background};
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      z-index: 5;
+      border-bottom: solid 2px {color:accent};
+    }
+    h3 {
+        font-family: Sans;
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+    ul {
+      margin: 0px;
+      text-align: left;
+    }
+    button li {
+      text-decoration: none;
+      display: inline;
+    }
+    .container {
+      max-width: 1200px;
+    }
+    section {
+      position: relative;
+      padding: 0px 20px;
+      z-index: 0;
+    }
+    section article {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      padding-bottom: 35px;
+    }
+    ol {
+      text-decoration: none;
+      list-style-type: none;
+    }
+    ol#Posts {
+        padding-left: 0;
+    }
+    ol li.post {
+      margin-top: 2em 0;
+      padding: 2em 0;
+      border-bottom: 1px solid {color:post separator};
+    }
+    a {
+        color: {color:links};
+        text-decoration: none;
+    } a:hover {
+        color: {color:links hover};
+        text-decoration: none;
+    } a:visited {
+        color: {color:links visited};
+        text-decoration: none;
+    }
+    ol li.post.chat ul {
+        list-style-type: none;
+    }
+    ol li.post.chat ul li:nth-child(odd) {
+        color: {color:chat odd};
+    }
+    ol li.post.chat ul li:nth-child(even) {
+        color: {color:chat even};
+    }
+    ol li.post .link {
+        font-size: 2em;
+        color: {color:link text};
+        /*border-radius: 5px;*/
+        padding: .15em .25em;
+    }
+    ol li.post blockquote {
+        border-left: 2px solid {color:accent};
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1em;
+        word-wrap: break-word;
+    }
+    ol li.post blockquote img {
+        max-width: 100%;
+    }
+    ol li#links {
+        margin: 2em 0;
+    }
+    ol.notes {
+        margin-top: 2em;
+        padding-left: 0;
+    }
+    ol.notes li {
+        margin-bottom: .125em;
+    }
+    .page.other {
+        margin: 3em 0;
+    }
+    footer {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      background-color: {color:footer background};
+      color: {color:footer text};
+      text-align: center;
+      padding: 10px 0px;
+      font-family: Sans-Serif;
+      font-size: 10pt;
+      height: 15px;
+
+    }
+    </style>
+    <script>
+    var pages = 0;
+    var nav = 0;
+    var cont = 0;
+    var header = 0;
+    var navtop = 0;
+    var navbuttons = 0;
+    var q = setInterval(function() {
+        if (document.getElementsByClassName ('page').length > 0) {
+            nav = document.getElementsByTagName ('nav')[0];
+            cont = document.getElementsByClassName ('container')[0];
+            navtop = nav.offsetTop;
+            header = document.getElementsByTagName ('header')[0];
+            window.onscroll = function () {
+              navtop = nav.offsetTop || header.clientHeight;
+              if (window.pageYOffset > navtop) {
+                nav.style.position = "fixed";
+                cont.style.marginTop = (nav.clientHeight+16)+"px";
+              }
+              else if (window.pageYOffset <= navtop) {
+                nav.style.position = "relative";
+                cont.style.marginTop = "0px";
+              }
+            }
+
+            navbuttons = document.getElementsByTagName ('button');
+            pages = document.getElementsByClassName ('page');
+
+            for (var i = 0; i < pages.length; i++) {
+              pages[i].style.display = "none";
+            }
+
+            pages[0].style.display = "block";
+            navbuttons[0].className = "selected";
+
+            clearInterval(q);
+        }
+    }, 25);
+
+    function buttonClick (element) {
+      if (window.pageYOffset > navtop) {
+        window.scrollTo (0, navtop);
+      }
+      for (var i = 0; i < pages.length; i++) {
+        if (navbuttons[i] == element) {
+          navbuttons[i].className = "selected";
+          pages[i].style.display = "block";
+          if (pages[i].innerHTML == "") {
+              if (i == 1) {
+                console.log(' {text:Content 2} ');
+                pages[i].innerHTML = ' {text:Content 2} ';
+              } else if (i == 2) {
+                pages[i].innerHTML = ' {text:Content 3} ';
+              } else if (i == 3) {
+                pages[i].innerHTML = ' {text:Content 4} ';
+              } else if (i == 4) {
+                pages[i].innerHTML = ' {text:Content 5} ';
+              } else if (i == 5) {
+                pages[i].innerHTML = ' {text:Content 6} ';
+              }
+          }
+        }
+        else {
+          navbuttons[i].className = "";
+          pages[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/" style="color: {color:header text}">{Title}</a>
+        {block:Description}
+          <span id="description">{Description}</span>
+        {/block:Description}</h1>
+        <nav>
+          <ul>
+            <button onclick="buttonClick(this)"><li>Posts</li>
+            </button>{block:IfHtwoExists}<button onclick="buttonClick(this)"><li>{text:heading two}</li>
+            </button>{/block:IfHtwoExists}{block:IfHthreeExists}<button onclick="buttonClick(this)"><li>{text:heading three}</li>
+            </button>{/block:IfHthreeExists}{block:IfHfourExists}<button onclick="buttonClick(this)"><li>{text:heading four}</li>
+            </button>{/block:IfHfourExists}{block:IfHfiveExists}<button onclick="buttonClick(this)"><li>{text:heading five}</li>
+            </button>{/block:IfHfiveExists}{block:IfHsixExists}<button onclick="buttonClick(this)"><li>{text:heading six}</li></button>{/block:IfHsixExists}
+          </ul>
+        </nav>
+      </header>
+      <div class="container">
+        <section>
+          <article>
+            <ol id="Posts" class="page">{block:Posts}{block:Text}
+                    <li class="post text">
+                        {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}{Body}
+                        <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                    </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Text}{block:Photo}
+                    <li class="post photo">
+                        <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                    </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Photo}{block:Panorama}
+                    <li class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                    </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Panorama}{block:Photoset}
+                    <li class="post photoset">
+                        {Photoset-500}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                    </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Photoset}{block:Quote}
+                  <li class="post quote">
+                    "{Quote}"
+
+                    {block:Source}
+                      <div class="source">{Source}</div>
+                    {/block:Source}
+                        <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                  </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Quote}{block:Link}
+                  <li class="post link">
+                    <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                    {block:Description}
+                      <div class="description">{Description}</div>
+                    {/block:Description}
+                        <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                  </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Link}{block:Chat}
+                  <li class="post chat">
+                    {block:Title}
+                      <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+
+                    <ul class="chat">
+                      {block:Lines}
+                        <li class="{Alt} user_{UserNumber}">
+                          {block:Label}
+                            <span class="label">{Label}</span>
+                          {/block:Label}{Line}
+                        </li>
+                      {/block:Lines}
+                    </ul><br>
+                    <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                  </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Chat}{block:Video}
+                  <li class="post video">
+                    {Video-500}{block:Caption}
+                      <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                  </li>
+                {/block:Video}{block:Audio}
+                  <li class="post audio">
+                    {AudioEmbed}{block:Caption}
+                      <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
+                  </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:Audio}{/block:Posts}
+
+                {block:Pagination}
+                  <li id="links">
+                    {block:PreviousPage}
+                      <a href="{PreviousPage}">&#171; Previous</a>
+                    {/block:PreviousPage}Page: {CurrentPage}{block:NextPage}
+                      <a href="{NextPage}">Next &#187;</a>
+                    {/block:NextPage}
+                    &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/archive">Archive</a>
+                  </li>
+            {/block:Pagination}
+            </ol>
+
+            {block:IfHtwoExists}<div class="page other"></div>{/block:IfHtwoExists}
+            {block:IfHthreeExists}<div class="page other"></div>{/block:IfHthreeExists}
+            {block:IfHfourExists}<div class="page other"></div>{/block:IfHfourExists}
+            {block:IfHfiveExists}<div class="page other"></div>{/block:IfHfiveExists}
+            {block:IfHsixExists}<div class="page other"></div>{/block:IfHsixExists}
+
+          </article>
+        </section>
+      </div>
+      <footer>
+        &copy; 2014 Riley Trautman (Asonix)
+      </footer>
+    </div>
+
+  </body>
+</html>
+
