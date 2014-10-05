@@ -12,6 +12,7 @@
 
     <meta name="color:header background" content="#2d2d2d" />
     <meta name="color:header text" content="#e5e5e5" />
+    <meta name="color:header links" content="#e5e5e5" />
     <meta name="color:accent" content="#d64937" />
     <meta name="color:page background" content="#dedede" />
     <meta name="color:page text" content="#202020" />
@@ -86,6 +87,16 @@
         width: 50px;
         margin-bottom: -13px;
         border-radius: 25px;
+      }
+      header h1 a {
+          color: {color:header links};
+          font-style: italic;
+      }
+      header h1 a:visited {
+          color: {color:header links};
+      }
+      header h1 a:hover {
+          color: {color:header links};
       }
       button {
         font-size: inherit;
@@ -316,7 +327,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="/" style="color: {color:header text}">{block:IfLogoImageExists}<img src="{image:logo}" alt="Logo">&nbsp;&nbsp;{/block:IfLogoImageExists}{Title}</a>
+        <h1><a href="/" style="color: {color:header text}; font-style: normal;">{block:IfLogoImageExists}<img src="{image:logo}" alt="Logo">&nbsp;&nbsp;{/block:IfLogoImageExists}{Title}</a>
         {block:Description}
           <span id="description">{Description}</span>
         {/block:Description}</h1>
