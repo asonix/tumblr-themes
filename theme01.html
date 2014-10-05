@@ -73,12 +73,12 @@
         background-image: url('{image:header}');
         background-position: center center;
         background-size: cover;
+        box-shadow: inset 0px 0px 10px #000000;
         {/block:IfHeaderImageExists}
         width: 100%;
         padding-top: 1em;
         color: {color:header text};
         z-index: 1;
-        box-shadow: inset 0px 0px 10px #000000;
       }
       .full {
         position: absolute;
@@ -90,7 +90,7 @@
       header h1 {
         position: relative;
         margin: 0px;
-        padding: 5em 25%;
+        padding: 5em 10% 5em 25%;
         margin-bottom: 5px;
         -webkit-transition: padding .5s ;
         -moz-transition: padding .5s ;
