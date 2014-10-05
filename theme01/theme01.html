@@ -347,7 +347,7 @@
             navtop = nav.offsetTop || header.clientHeight;
 
             if (window.pageYOffset > 0) {
-              if (h1.className != "small") {
+              if (h1.className != "small" && !moving) {
                 var count = 0;
                 h1.className = "small";
                 var t = setInterval (function () {
@@ -362,11 +362,20 @@
                 }, 25);
               }
             } else if (window.pageYOffset == 0) {
-              if (!moving) {
-                if (h1.className != "") {
+                if (h1.className != "" && !moving) {
+                  var count = 0;
                   h1.className = "";
+                  var t = setInterval (function () {
+                    if (count < 20) {
+                      moving = true;
+                      window.scrollTo (0, 0);
+                      ++count;
+                    } else {
+                      moving = false;
+                      clearInterval(t);
+                    }
+                  }, 25);
                 }
-              }
             }
 
             if (window.pageYOffset > navtop) {
