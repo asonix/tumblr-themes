@@ -4,6 +4,10 @@
   <head>
     <title>{title}</title>
     <meta charset="utf-8">
+    
+    <meta name="image:logo" content="" />
+    <meta name="if:logo image exists" content="0" />
+    <meta name="if:header image exists" content="0" />
 
     <meta name="color:header background" content="#2d2d2d" />
     <meta name="color:header text" content="#e5e5e5" />
@@ -23,19 +27,19 @@
     <meta name="color:footer text" content="#999999" />
     <meta name="color:link text" content="#d64937" />
 
-    <meta name="if:htwo exists" content="1" />
+    <meta name="if:heading two exists" content="1" />
     <meta name="text:heading two" content="Ask" />
 
-    <meta name="if:hthree exists" content="1" />
+    <meta name="if:heading three exists" content="1" />
     <meta name="text:heading three" content="Submit" />
 
-    <meta name="if:hfour exists" content="0" />
+    <meta name="if:heading four exists" content="0" />
     <meta name="text:heading four" content="Lorem" />
 
-    <meta name="if:hfive exists" content="0" />
+    <meta name="if:heading five exists" content="0" />
     <meta name="text:heading five" content="Ipsum" />
 
-    <meta name="if:hsix exists" content="0" />
+    <meta name="if:heading six exists" content="0" />
     <meta name="text:heading six" content="Dolor" />
 
     <meta name="text:Content 4" content="Lorem" />
@@ -62,6 +66,10 @@
       }
       header {
         background-color: {color:header background};
+        {block:IfHeaderImageExists}
+        background-image: url('{HeaderImage}');
+        background-position: bottom;
+        {/block:IfHeaderImageExists}
         width: 100%;
         padding-top: 1em;
         color: {color:header text};
@@ -71,6 +79,12 @@
         margin: 0px;
         padding: .5em 50px;
         margin-bottom: 5px;
+      }
+      header h1 img {
+        height: 50px;
+        width: 50px;
+        margin-bottom: -13px;
+        border-radius: 25px;
       }
       button {
         font-size: inherit;
@@ -99,12 +113,18 @@
       button:active {
         color: {color:text button hover};
       }
-#description {
+      #description {
         font-size: .5em;
         font-weight: normal;
       }
       nav {
+        {block:IfNotHeaderImageExists}
         background-color: {color:header background};
+        {/block:IfNotHeaderImageExists}
+        {block:IfHeaderImageExists}
+        background-image: url('{HeaderImage}');
+        background-position: bottom;
+        {/block:IfHeaderImageExists}
         top: 0px;
         left: 0px;
         width: 100%;
@@ -202,8 +222,15 @@
         position: absolute;
         bottom: 0px;
         width: 100%;
+        {block:IfNotHeaderImageExists}
         background-color: {color:footer background};
         color: {color:footer text};
+        {/block:IfNotHeaderImageExists}
+        {block:IfHeaderImageExists}
+        background-image: url('{HeaderImage}');
+        background-position: bottom;
+        color: {color:header text};
+        {/block:IfHeaderImageExists}
         text-align: center;
         padding: 10px 0px;
         font-family: Sans-Serif;
@@ -288,18 +315,18 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="/" style="color: {color:header text}">{Title}</a>
+        <h1><a href="/" style="color: {color:header text}">{block:IfLogoImageExists}<img src="{image:logo}" alt="Logo">&nbsp;&nbsp;{/block:IfLogoImageExists}{Title}</a>
         {block:Description}
           <span id="description">{Description}</span>
         {/block:Description}</h1>
         <nav>
           <ul>
             <button onclick="buttonClick(this)"><li>Posts</li>
-            </button>{block:IfHtwoExists}<button onclick="buttonClick(this)"><li>{text:heading two}</li>
-            </button>{/block:IfHtwoExists}{block:IfHthreeExists}<button onclick="buttonClick(this)"><li>{text:heading three}</li>
-            </button>{/block:IfHthreeExists}{block:IfHfourExists}<button onclick="buttonClick(this)"><li>{text:heading four}</li>
-            </button>{/block:IfHfourExists}{block:IfHfiveExists}<button onclick="buttonClick(this)"><li>{text:heading five}</li>
-            </button>{/block:IfHfiveExists}{block:IfHsixExists}<button onclick="buttonClick(this)"><li>{text:heading six}</li></button>{/block:IfHsixExists}
+            </button>{block:IfHeadingtwoExists}<button onclick="buttonClick(this)"><li>{text:heading two}</li>
+            </button>{/block:IfHeadingtwoExists}{block:IfHeadingthreeExists}<button onclick="buttonClick(this)"><li>{text:heading three}</li>
+            </button>{/block:IfHeadingthreeExists}{block:IfHeadingfourExists}<button onclick="buttonClick(this)"><li>{text:heading four}</li>
+            </button>{/block:IfHeadingfourExists}{block:IfHeadingfiveExists}<button onclick="buttonClick(this)"><li>{text:heading five}</li>
+            </button>{/block:IfHeadingfiveExists}{block:IfHeadingsixExists}<button onclick="buttonClick(this)"><li>{text:heading six}</li></button>{/block:IfHeadingsixExists}
           </ul>
         </nav>
       </header>
@@ -423,11 +450,11 @@
             {/block:Pagination}
             </ol>
 
-            {block:IfHtwoExists}<div class="page other"></div>{/block:IfHtwoExists}
-            {block:IfHthreeExists}<div class="page other"></div>{/block:IfHthreeExists}
-            {block:IfHfourExists}<div class="page other"></div>{/block:IfHfourExists}
-            {block:IfHfiveExists}<div class="page other"></div>{/block:IfHfiveExists}
-            {block:IfHsixExists}<div class="page other"></div>{/block:IfHsixExists}
+            {block:IfHeadingtwoExists}<div class="page other"></div>{/block:IfHeadingtwoExists}
+            {block:IfHeadingthreeExists}<div class="page other"></div>{/block:IfHeadingthreeExists}
+            {block:IfHeadingfourExists}<div class="page other"></div>{/block:IfHeadingfourExists}
+            {block:IfHeadingfiveExists}<div class="page other"></div>{/block:IfHeadingfiveExists}
+            {block:IfHeadingsixExists}<div class="page other"></div>{/block:IfHeadingsixExists}
 
           </article>
         </section>
