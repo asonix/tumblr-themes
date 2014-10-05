@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     
     <meta name="image:logo" content="" />
+    <meta name="image:header" content="{HeaderImage}" />
     <meta name="if:logo image exists" content="0" />
     <meta name="if:header image exists" content="0" />
 
@@ -67,7 +68,7 @@
       header {
         background-color: {color:header background};
         {block:IfHeaderImageExists}
-        background-image: url('{HeaderImage}');
+        background-image: url('{image:header}');
         background-position: bottom;
         {/block:IfHeaderImageExists}
         width: 100%;
@@ -122,7 +123,7 @@
         background-color: {color:header background};
         {/block:IfNotHeaderImageExists}
         {block:IfHeaderImageExists}
-        background-image: url('{HeaderImage}');
+        background-image: url('{image:header}');
         background-position: bottom;
         {/block:IfHeaderImageExists}
         top: 0px;
@@ -227,7 +228,7 @@
         color: {color:footer text};
         {/block:IfNotHeaderImageExists}
         {block:IfHeaderImageExists}
-        background-image: url('{HeaderImage}');
+        background-image: url('{image:header}');
         background-position: bottom;
         color: {color:header text};
         {/block:IfHeaderImageExists}
