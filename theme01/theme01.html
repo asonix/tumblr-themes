@@ -122,8 +122,9 @@
         color: {color:header links background};
         font-style: italic;
       }
-      header h1 a span {
+      header h1 a.btitle {
         color: {color:header links background};
+        font-style: normal;
       }
       button {
         font-size: inherit;
@@ -544,7 +545,7 @@
     <div class="wrapper">
       <header>
         <div class="full"></div>
-        <h1><a href="/" style="color: {color:header text}; font-style: normal;">{block:IfLogoImageExists}<img src="{image:logo}" alt="Logo">&nbsp;&nbsp;{/block:IfLogoImageExists}{Title}</a>
+        <h1><a href="/" class="btitle">{block:IfLogoImageExists}<img src="{image:logo}" alt="Logo">&nbsp;&nbsp;{/block:IfLogoImageExists}{Title}</a>
         {block:Description}
           <span id="description">{Description}</span>
         {/block:Description}</h1>
