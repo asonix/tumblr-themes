@@ -12,7 +12,9 @@
 
     <meta name="color:header background" content="#2d2d2d" />
     <meta name="color:header text" content="#e5e5e5" />
+    <meta name="color:header text background" content="#e5e5e5" />
     <meta name="color:header links" content="#e5e5e5" />
+    <meta name="color:header links background" content="#e5e5e5" />
     <meta name="color:accent" content="#d64937" />
     <meta name="color:page background" content="#dedede" />
     <meta name="color:page text" content="#202020" />
@@ -77,7 +79,6 @@
         {/block:IfHeaderImageExists}
         width: 100%;
         padding-top: 1em;
-        color: {color:header text};
         z-index: 1;
       }
       .full {
@@ -92,14 +93,22 @@
         margin: 0px;
         padding: 5em 10% 5em 25%;
         margin-bottom: 5px;
-        -webkit-transition: padding .5s ;
-        -moz-transition: padding .5s ;
-        -ms-transition: padding .5s ;
-        -o-transition: padding .5s ;
-        transition: padding .5s ;
+        color: {color:header text background};
+        -webkit-transition: padding .5s, color .5s;
+        -moz-transition: padding .5s, color .5s;
+        -ms-transition: padding .5s, color .5s;
+        -o-transition: padding .5s, color .5s;
+        transition: padding .5s, color .5s;
       }
       header h1.small {
-          padding: .5em 50px;
+        padding: .5em 50px;
+        color: {color:header text};
+      }
+      header h1.small a,
+      header h1.small a:hover,
+      header h1.small a:visited,
+      header h1.small a span {
+        color: {color:header links};
       }
       header h1 img {
         height: 50px;
@@ -107,15 +116,14 @@
         margin-bottom: -13px;
         border-radius: 25px;
       }
-      header h1 a {
-          color: {color:header links};
-          font-style: italic;
-      }
-      header h1 a:visited {
-          color: {color:header links};
-      }
+      header h1 a,
+      header h1 a:visited,
       header h1 a:hover {
-          color: {color:header links};
+        color: {color:header links background};
+        font-style: italic;
+      }
+      header h1 a span {
+        color: {color:header links background};
       }
       button {
         font-size: inherit;
