@@ -192,12 +192,10 @@
         max-width: 1200px;
       }
       section {
-        position: relative;
         padding: 0px 20px;
         z-index: 0;
       }
       section article {
-        position: relative;
         max-width: 900px;
         margin: auto;
         padding-bottom: 35px;
@@ -274,6 +272,31 @@
         font-size: 10pt;
         height: 15px;
 
+      }
+      #likes {
+        padding-left: 0;
+      }
+      #likes .like_post {
+        display: inline-block;
+        list-style-type: none;
+        max-width: 200px;
+        margin-right: 2em;
+        vertical-align: top;
+      }
+      #likes .like_post img {
+        max-width: 200px;
+        max-height: 200px;
+      }
+      #likes .like_post blockquote {
+        border-left: 2px solid {color:accent};
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1em;
+        word-wrap: break-word;
+      }
+      #likes .like_post blockquote img {
+        max-width: 100%;
+        max-height: 200px;
       }
     </style>
     <script>
@@ -515,6 +538,7 @@
               url = '{BlogURL}';
               url = url.replace ('https://', '');
               url = url.replace ('http://', '');
+              url = url.replace ('/', '');
 
               if (i == 1) {
                 pages[i].innerHTML = ' <h3>{AskLabel}</h3><iframe frameborder="0" scrolling="no" width="100%" height="190" src="https://www.tumblr.com/ask_form/'+url+'" style="background-color:transparent; overflow:hidden;" id="ask_form"></iframe> ';
@@ -682,13 +706,8 @@
               {block:IfDisplayLikes}
                 {block:Likes}
                   <li id="likes_container" style="border-top: solid 1px {color:post separator}; padding-bottom: 1em;">
-                    <p>Likes</p>
-
-                    {Likes limit="5" summarize="100" width="150"}
-
-                    <a href="http://www.tumblr.com/liked/by/{name}">
-                      See more stuff I like
-                    </a>
+                    <a href="http://www.tumblr.com/liked/by/{name}"><p style="margin: 2em 0;">Recent Likes</p></a>
+                    {Likes limit="3" summarize="100" width="150"}
                   </li>
                 {/block:Likes}
               {/block:IfDisplayLikes}
