@@ -49,6 +49,8 @@
     <meta name="text:Content 4" content="Lorem" />
     <meta name="text:Content 5" content="Ipsum" />
     <meta name="text:Content 6" content="Dolor" />
+    
+    <meta name="if:display likes" content="0" />
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 
@@ -676,7 +678,20 @@
                     {/block:NextPage}
                     &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/archive">Archive</a>
                   </li>
-            {/block:Pagination}
+              {/block:Pagination}
+              {block:IfDisplayLikes}
+                {block:Likes}
+                  <li id="likes_container" style="border-top: solid 1px {color:post separator}; padding-bottom: 1em;">
+                    <p>Likes</p>
+
+                    {Likes limit="5" summarize="100" width="150"}
+
+                    <a href="http://www.tumblr.com/liked/by/{name}">
+                      See more stuff I like
+                    </a>
+                  </li>
+                {/block:Likes}
+              {/block:IfDisplayLikes}
             </ol>
 
             {block:IfHeadingtwoExists}<div class="page other"></div>{/block:IfHeadingtwoExists}
@@ -685,11 +700,12 @@
             {block:IfHeadingfiveExists}<div class="page other"></div>{/block:IfHeadingfiveExists}
             {block:IfHeadingsixExists}<div class="page other"></div>{/block:IfHeadingsixExists}
 
+
           </article>
         </section>
       </div>
       <footer>
-        &copy; 2014 Riley Trautman (Asonix)
+        &copy; 2014 R. Trautman (Asonix)
       </footer>
     </div>
 
