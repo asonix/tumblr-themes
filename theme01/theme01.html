@@ -4,7 +4,7 @@
   <head>
     <title>{title}</title>
     <meta charset="utf-8">
-    
+
     <meta name="image:logo" content="{PortraitURL-48}" />
     <meta name="image:header" content="{HeaderImage}" />
     <meta name="if:logo image exists" content="0" />
@@ -49,7 +49,7 @@
     <meta name="text:Content 4" content="Lorem" />
     <meta name="text:Content 5" content="Ipsum" />
     <meta name="text:Content 6" content="Dolor" />
-    
+
     <meta name="if:display likes" content="0" />
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
@@ -77,6 +77,7 @@
         background-image: url('{image:header}');
         background-position: center center;
         background-size: cover;
+        background-repeat: repeat-x;
         box-shadow: inset 0px -5px 10px -5px #002b36;
         {/block:IfHeaderImageExists}
         width: 100%;
@@ -171,9 +172,13 @@
       nav.fixed {
         background-color: {color:header background};
         position: fixed;
+        box-shadow: 0 0 5px {color:accent};
       }
       nav.fixed:after {
           opacity: 1;
+      }
+      nav.fixed button {
+          border-bottom: 0;
       }
       h3 {
         font-family: Sans;
@@ -225,10 +230,13 @@
       ol li.post.chat ul {
         list-style-type: none;
       }
-      ol li.post.chat ul li:nth-child(odd) {
+      ol li.post.chat ul li {
+          margin: .5em auto;
+      }
+      ol li.post.chat ul li:nth-child(odd) .label {
         color: {color:chat odd};
       }
-      ol li.post.chat ul li:nth-child(even) {
+      ol li.post.chat ul li:nth-child(even) .label {
         color: {color:chat even};
       }
       ol li.post .link {
@@ -246,6 +254,9 @@
       }
       ol li.post blockquote img {
         max-width: 100%;
+      }
+      ol li.post img {
+          max-width: 100%;
       }
       ol li#links {
         margin: 2em 0;
@@ -302,7 +313,7 @@
     <script>
       var keys = [38, 40];
       var moving = false;
-      
+
       function isMoving (custom) {
           var count = 0;
           moving = true;
@@ -314,23 +325,23 @@
               ++count;
           }, 25);
       }
-      
+
       function scrollWhenApplicable (e) {
         if (moving) {
           preventDefault (e);
           return;
         }
-        
+
         var header = document.getElementsByTagName ('header')[0];
         var h1 = header.getElementsByTagName ('h1')[0];
-        
+
         var value = 0;
         if (Math.abs (e['wheelDeltaY']/Math.abs (e['wheelDeltaY'])) == 1) {
           value = e['wheelDeltaY']/Math.abs (e['wheelDeltaY']);
         } else {
           value = e['keyCode'] == 38 ? 1 : -1
         }
-        
+
         if (h1.className == "" && value == -1) {
           preventDefault (e);
           h1.className = "small";
@@ -348,7 +359,7 @@
         e = e || window.event;
         if (e.preventDefault)
             e.preventDefault();
-        e.returnValue = false;  
+        e.returnValue = false;
       }
 
       function keydown (e) {
@@ -376,7 +387,7 @@
         if (window.removeEventListener) {
           window.removeEventListener('DOMMouseScroll', wheel, false);
         }
-        window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+        window.onmousewheel = document.onmousewheel = document.onkeydown = null;
       }
 
       disable_scroll ();
@@ -396,20 +407,20 @@
       function getDecimal (start, current, finish) {
           return (current-start)/(finish-start);
       }
-      
+
       function onChange (monitor, callback) {
           var prev = monitor();
           var curr = 0;
           var t = setInterval(function () {
               curr = monitor();
-              
+
               if (prev != curr) {
                   callback();
                   prev = curr;
               }
           }, 50);
       }
-      
+
       var pages = 0;
       var nav = 0;
       var cont = 0;
@@ -420,11 +431,11 @@
       var full = 0;
       var wrapper = 0;
       var moving = false;
-      
+
       var q = setInterval (function () {
-          
+
         if (document.getElementsByClassName ('page').length > 0) {
-            
+
           if ('{CurrentPage}' != '1') {
             h1.className = "small";
           }
@@ -542,18 +553,18 @@
 
               if (i == 1) {
                 pages[i].innerHTML = ' <h3>{AskLabel}</h3><iframe frameborder="0" scrolling="no" width="100%" height="190" src="https://www.tumblr.com/ask_form/'+url+'" style="background-color:transparent; overflow:hidden;" id="ask_form"></iframe> ';
-              } 
+              }
 
               else if (i == 2) {
                 pages[i].innerHTML = ' <h3>{SubmitLabel}</h3><iframe frameborder="0" scrolling="no" width="100%" height="289" id="submit_form" src="https://www.tumblr.com/submit_form/'+url+'" style="background-color:transparent; overflow:hidden;"></iframe> ';
-              } 
+              }
 
               else if (i == 3) {
-                pages[i].innerHTML = ' {text:Content 4} ';
+                pages[i].innerHTML = ` {text:Content 4} `;
               } else if (i == 4) {
-                pages[i].innerHTML = ' {text:Content 5} ';
+                pages[i].innerHTML = ` {text:Content 5} `;
               } else if (i == 5) {
-                pages[i].innerHTML = ' {text:Content 6} ';
+                pages[i].innerHTML = ` {text:Content 6} `;
               }
             }
           }
@@ -680,7 +691,11 @@
                     {Video-500}{block:Caption}
                       <div class="caption">{Caption}</div>
                     {/block:Caption}
+                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
+        <a href="{TagURL}"> #{Tag}</a>
+        {/block:Tags}</span>{/block:HasTags}</div>
                   </li>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
                 {/block:Video}{block:Audio}
                   <li class="post audio">
                     {AudioEmbed}{block:Caption}
@@ -724,7 +739,7 @@
         </section>
       </div>
       <footer>
-        &copy; 2014 R. Trautman (Asonix)
+        &copy; 2015 Riley Trautman (Asonix)
       </footer>
     </div>
 
