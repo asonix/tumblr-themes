@@ -153,6 +153,13 @@
         width: 230px;
         flex-direction: column;
       }
+      
+      a:link.sidebar-selected,
+      a:visited.sidebar-selected,
+      a:hover.sidebar-selected,
+      a:active.sidebar-selected {
+        color: #fff;
+      }
 
       section {
         width: 100%;
@@ -381,7 +388,7 @@
               </a>
             </ul>
             <ul>
-              <a href="/" ><li>Posts</li></a>
+              <a href="/" {block:IndexPage}class="sidebar-selected"{/block:IndexPage}><li>Posts</li></a>
               {block:AskEnabled}
                 <a href="/ask"><li>{AskLabel}</li></a>
               {/block:AskEnabled}
