@@ -6,14 +6,14 @@
     <meta charset="utf-8">
 
     <meta name="if:infinite scroll" content="1" />
-
+    
     <meta name="if:tag one exists" content="0" />
     <meta name="if:tag two exists" content="0" />
     <meta name="if:tag three exists" content="0" />
     <meta name="if:tag four exists" content="0" />
     <meta name="if:tag five exists" content="0" />
     <meta name="if:tag six exists" content="0" />
-
+    
     <meta name="text:TagOneName" />
     <meta name="text:TagOneURL" />
     <meta name="text:TagTwoName" />
@@ -30,322 +30,322 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans' rel='stylesheet' type='text/css'>
 
     <style>
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+      .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
 
-body {
-  margin: 0;
-  min-height: 100%;
-  font-family: 'Open Sans';
-  font-size: 14px;
-}
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: 'Open Sans';
+        font-size: 14px;
+      }
 
-header {
-  position: fixed;
-  height: 50px;
-  left: 230px;
-  right: 0px;
-  background-color: #fff;
-  border-bottom: 1px #eee solid;
-}
+      header {
+        position: fixed;
+        height: 50px;
+        left: 230px;
+        right: 0px;
+        background-color: #fff;
+        border-bottom: 1px #eee solid;
+      }
 
-header h1 {
-  line-height: 50px;
-  color: #444;
-  font-size: 18px;
-  padding: 0;
-  margin: 0;
-}
+      header h1 {
+        line-height: 50px;
+        color: #444;
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+      }
 
-header h1 span:first-child {
-  margin-left: 35px;
-}
+      header h1 span:first-child {
+        margin-left: 35px;
+      }
 
-.page-location a:link,
-.page-location a:visited {
-  color: #444;
-}
-.page-location a:hover,
-.page-location a:active {
-  color: #444;
-  text-decoration: underline;
-}
+      .page-location a:link,
+      .page-location a:visited {
+        color: #444;
+      }
+      .page-location a:hover,
+      .page-location a:active {
+        color: #444;
+        text-decoration: underline;
+      }
 
-.container {
-  flex: 1;
-  display: flex;
-}
+      .container {
+        flex: 1;
+        display: flex;
+      }
 
-nav.sidebar {
-  min-width: 230px;
-  position: relative;
-  background-color: #373d47;
-  font-size: 13px;
-}
+      nav.sidebar {
+        min-width: 230px;
+        position: relative;
+        background-color: #373d47;
+        font-size: 13px;
+      }
 
-#title-logo {
-  height: 36px;
-  width: 36px;
-  border-radius: 18px;
-}
+      #title-logo {
+        height: 36px;
+        width: 36px;
+        border-radius: 18px;
+      }
 
-#title {
-  margin-left: 14px;
-}
+      #title {
+        margin-left: 14px;
+      }
 
-#title-logo, #title {
-  display: inline-block;
-  vertical-align: middle;
-}
+      #title-logo, #title {
+        display: inline-block;
+        vertical-align: middle;
+      }
 
-ul {
-  padding: 0;
-  width: 100%;
-}
+      ul {
+        padding: 0;
+        width: 100%;
+      }
 
-.fixed {
-  display: flex;
-  position: fixed;
-}
+      .fixed {
+        display: flex;
+        position: fixed;
+      }
 
-.page-title {
-  margin: 0;
-}
+      .page-title {
+        margin: 0;
+      }
 
-.page-title li {
-  padding: 7px 8px;
-}
+      .page-title li {
+        padding: 7px 8px;
+      }
 
-.page-title h1 {
-  margin: 0;
-  line-height: 36px;
-  font-size: 18px;
-}
+      .page-title h1 {
+        margin: 0;
+        line-height: 36px;
+        font-size: 18px;
+      }
 
-li {
-  display: block;
-  list-style: none;
-  padding: 8px 15px;
-}
+      li {
+        display: block;
+        list-style: none;
+        padding: 8px 15px;
+      }
 
-a, a:link, a:visited {
-  color: #979da7;
-  text-decoration: none;
-}
+      a, a:link, a:visited {
+        color: #979da7;
+        text-decoration: none;
+      }
 
-a:active, a:hover {
-  color: #979da7;
-}
+      a:active, a:hover {
+        color: #979da7;
+      }
 
-a:active > li, a:hover > li {
-  background-color: #24272d;
-}
+      a:active > li, a:hover > li {
+        background-color: #24272d;
+      }
 
-a.btitle:active > li, a.btitle:hover > li {
-  color: #fff;
-}
+      a.btitle:active > li, a.btitle:hover > li {
+        color: #fff;
+      }
 
-.sidebar .fixed {
-  width: 230px;
-  flex-direction: column;
-}
+      .sidebar .fixed {
+        width: 230px;
+        flex-direction: column;
+      }
 
-section {
-  width: 100%;
-  display: flex;
-  padding: 20px;
-}
+      section {
+        width: 100%;
+        display: flex;
+        padding: 20px;
+      }
 
-article {
-  padding-top: 50px;
-}
+      article {
+        padding-top: 50px;
+      }
 
-.post-article {
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 100%;
-}
+      .post-article {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+      }
 
-.page-description {
-  color: #555555;
-  font-size: 16px;
-  margin-bottom: 25px;
-}
+      .page-description {
+        color: #555555;
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
 
-.page-description img {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  margin-right: 12px;
-}
+      .page-description img {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        margin-right: 12px;
+      }
 
-.page-description span,
-.page-description img {
-  vertical-align: middle;
-}
+      .page-description span,
+      .page-description img {
+        vertical-align: middle;
+      }
 
-.tab-line {
-  border-bottom: 1px solid #dddddd;
-  margin-bottom: 15px;
-}
+      .tab-line {
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 15px;
+      }
 
-.tab-line .tab {
-  display: inline-block;
-  padding: 10px 15px;
-  font-weight: bold;
-  color: #333;
-  border: 1px solid #dddddd;
-  border-bottom: 1px solid #fff;
-  border-radius: 4px 4px 0 0;
-}
+      .tab-line .tab {
+        display: inline-block;
+        padding: 10px 15px;
+        font-weight: bold;
+        color: #333;
+        border: 1px solid #dddddd;
+        border-bottom: 1px solid #fff;
+        border-radius: 4px 4px 0 0;
+      }
 
-.tab-line .tab.active {
-  margin-bottom: -1px;
-}
+      .tab-line .tab.active {
+        margin-bottom: -1px;
+      }
 
-.common-tags {
-  margin-bottom: 19px;
-}
+      .common-tags {
+        margin-bottom: 19px;
+      }
 
-.common-tags .tag {
-  display: inline-block;
-  background: whitesmoke;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 13px;
-}
+      .common-tags .tag {
+        display: inline-block;
+        background: whitesmoke;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 13px;
+      }
 
-.common-tags .tag:hover {
-  background-color: #eeeeee;
-}
+      .common-tags .tag:hover {
+        background-color: #eeeeee;
+      }
 
-.common-tags a:link .tag,
-.common-tags a:visited .tag {
-  color: #666;
-}
-.common-tags a:hover .tag,
-.common-tags a:active .tag {
-  text-decoration: none;
-  color: #666;
-}
+      .common-tags a:link .tag,
+      .common-tags a:visited .tag {
+        color: #666;
+      }
+      .common-tags a:hover .tag,
+      .common-tags a:active .tag {
+        text-decoration: none;
+        color: #666;
+      }
 
-.page {
-  margin: auto;
-  padding: 0px;
-}
+      .page {
+        margin: auto;
+        padding: 0px;
+      }
 
-section a,
-section a:link,
-section a:visited {
-  color: #446e9b;
-}
-section a:hover,
-section a:active {
-  color: #2d4866;
-  text-decoration: underline;
-}
+      section a,
+      section a:link,
+      section a:visited {
+        color: #446e9b;
+      }
+      section a:hover,
+      section a:active {
+        color: #2d4866;
+        text-decoration: underline;
+      }
 
-.post {
-  max-width: 900px;
-  margin: 2em 0;
-  vertical-align: top;
-  height: auto;
-  color: #222222;
-}
+      .post {
+        max-width: 900px;
+        margin: 2em 0;
+        vertical-align: top;
+        height: auto;
+        color: #222222;
+      }
 
-.post .notes {
-  font-size: 13px;
-}
+      .post .notes {
+        font-size: 13px;
+      }
 
-.post-index {
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
-  padding: 1em 0;
-  border-top: 1px solid #eee;
-}
+      .post-index {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 0px;
+        padding: 1em 0;
+        border-top: 1px solid #eee;
+      }
 
-.post-index > img,
-.post-index > a,
-.post-index > span {
-  vertical-align: middle;
-}
+      .post-index > img,
+      .post-index > a,
+      .post-index > span {
+        vertical-align: middle;
+      }
 
-.post.post-index img {
-  height: 24px;
-  width: 24px;
-  border-radius: 12px;
-  margin-right: 8px;
-}
+      .post.post-index img {
+        height: 24px;
+        width: 24px;
+        border-radius: 12px;
+        margin-right: 8px;
+      }
 
-.post-index .notes {
-  margin-left: 32px;
-}
+      .post-index .notes {
+        margin-left: 32px;
+      }
 
-.post-index .timeago {
-  color: #999;
-  float: right;
-}
+      .post-index .timeago {
+        color: #999;
+        float: right;
+      }
 
-blockquote {
-  margin: 0;
-  padding: 0 1em;
-  border-left: 1px solid #979da7;
-}
+      blockquote {
+        margin: 0;
+        padding: 0 1em;
+        border-left: 1px solid #979da7;
+      }
 
-pre {
-  white-space: normal;
-}
+      pre {
+        white-space: normal;
+      }
 
-p {
-  word-wrap: break-word;
-  word-break: break-word;
-}
+      p {
+        word-wrap: break-word;
+        word-break: break-word;
+      }
 
-.post img {
-  max-width: 100%;
-}
+      .post img {
+        max-width: 100%;
+      }
 
-.page.other {
-  display: none;
-}
+      .page.other {
+        display: none;
+      }
 
-.like-article {
-  width: 50%;
-}
+      .like-article {
+        width: 50%;
+      }
 
-.like-wrapper {
-  margin: 0 15px;
-}
+      .like-wrapper {
+        margin: 0 15px;
+      }
 
-.like-wrapper > div {
-  border: 1px solid #eee;
-  border-radius: 3px;
-}
+      .like-wrapper > div {
+        border: 1px solid #eee;
+        border-radius: 3px;
+      }
 
-.like-wrapper > div > a p {
-  padding: 10px 15px;
-  margin: 0;
-}
+      .like-wrapper > div > a p {
+        padding: 10px 15px;
+        margin: 0;
+      }
 
-#likes {
-  margin-top: 0;
-}
+      #likes {
+        margin-top: 0;
+      }
 
-#likes .like_post {
-  border-top: 1px solid #eee;
-}
+      #likes .like_post {
+        border-top: 1px solid #eee;
+      }
 
-#likes img {
-  max-width: 150px;
-}
+      #likes img {
+        max-width: 150px;
+      }
     </style>
   </head>
   <body>
@@ -356,9 +356,9 @@ p {
           <span>/</span>
           {block:TagPage}
             <a href="{TagURL}">{Tag}</a>
-            {/block:TagPage}
-            {block:IndexPage}
-            <a href="/">posts</a>
+          {/block:TagPage}
+          {block:IndexPage}
+            <a href="/" {block:TagPage}style="display: none;"{/block:TagPage}>posts</a>
           {/block:IndexPage}
           {block:PermalinkPage}
             {block:PostSummary}
@@ -374,19 +374,22 @@ p {
               <a href="/" class="btitle">
                 <li>
                   {block:ShowAvatar}
-                  <img src="{PortraitURL-40}" id="title-logo" alt="Logo">
+                    <img src="{PortraitURL-40}" id="title-logo" alt="Logo">
                   {/block:ShowAvatar}
                   <h1 id="title">{Title}</h1>
                 </li>
               </a>
             </ul>
             <ul>
-              <a href="/" ><li>Posts</li>
-              </a>{block:AskEnabled}<a href="/ask"><li>{AskLabel}</li>
-              </a>{/block:AskEnabled}{block:SubmissionsEnabled}<a href="/submit"><li>{SubmitLabel}</li>
-              </a>{/block:SubmissionsEnabled}<a href="https://asonix.tumblr.com"><li>Theme &copy; Asonix</li>
-              </a><a href="/"><li>Blog &copy; {Title} {CopyrightYears}</li>
-              </a>
+              <a href="/" ><li>Posts</li></a>
+              {block:AskEnabled}
+                <a href="/ask"><li>{AskLabel}</li></a>
+              {/block:AskEnabled}
+              {block:SubmissionsEnabled}
+                <a href="/submit"><li>{SubmitLabel}</li></a>
+              {/block:SubmissionsEnabled}
+              <a href="https://asonix.tumblr.com"><li>Theme &copy; Asonix</li></a>
+              <a href="/"><li>Blog &copy; {Title} {CopyrightYears}</li></a>
             </ul>
           </div>
         </nav>
@@ -403,396 +406,572 @@ p {
             </div>
             <div class="tab-pane active activity">
               <div class="common-tags">
-                {block:IfTagOneExists}<a href="/tagged/{text:TagOneURL}"><div class="tag">{text:TagOneName}</div></a>{/block:IfTagOneExists}
-                {block:IfTagTwoExists}<a href="/tagged/{text:TagTwoURL}"><div class="tag">{text:TagTwoName}</div></a>{/block:IfTagTwoExists}
-                {block:IfTagThreeExists}<a href="/tagged/{text:TagThreeURL}"><div class="tag">{text:TagThreeName}</div></a>{/block:IfTagThreeExists}
-                {block:IfTagFourExists}<a href="/tagged/{text:TagFourURL}"><div class="tag">{text:TagFourName}</div></a>{/block:IfTagFourExists}
-                {block:IfTagFiveExists}<a href="/tagged/{text:TagFiveURL}"><div class="tag">{text:TagFiveName}</div></a>{/block:IfTagFiveExists}
-                {block:IfTagSixExists}<a href="/tagged/{text:TagSixURL}"><div class="tag">{text:TagSixName}</div></a>{/block:IfTagSixExists}
+                {block:IfTagOneExists}<a href="/tagged/{text:TagOneURL}"><div class="tag">#{text:TagOneName}</div></a>{/block:IfTagOneExists}
+                {block:IfTagTwoExists}<a href="/tagged/{text:TagTwoURL}"><div class="tag">#{text:TagTwoName}</div></a>{/block:IfTagTwoExists}
+                {block:IfTagThreeExists}<a href="/tagged/{text:TagThreeURL}"><div class="tag">#{text:TagThreeName}</div></a>{/block:IfTagThreeExists}
+                {block:IfTagFourExists}<a href="/tagged/{text:TagFourURL}"><div class="tag">#{text:TagFourName}</div></a>{/block:IfTagFourExists}
+                {block:IfTagFiveExists}<a href="/tagged/{text:TagFiveURL}"><div class="tag">#{text:TagFiveName}</div></a>{/block:IfTagFiveExists}
+                {block:IfTagSixExists}<a href="/tagged/{text:TagSixURL}"><div class="tag">#{text:TagSixName}</div></a>{/block:IfTagSixExists}
               </div>
               <ol id="Posts" class="page">
                 {block:IndexPage}
-                <div class="autopagerize_page_element">
-                {block:Posts}
+                  <div class="autopagerize_page_element">
+                    {block:Posts}
 
 
-                {block:Text}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                      {block:Text}
+                        <li class="post post-index">
+                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
 
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">text post</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
+                          {block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}">text post</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
 
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">text post</a>
-                  {/block:NotReblog}
+                          {block:NotReblog}
+                            <span>made a</span>
+                            <a href="{permalink}">text post</a>
+                          {/block:NotReblog}
 
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
 
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Text}
-
-
-                {block:Photo}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
-
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">photo</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
-
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">photo post</a>
-                  {/block:NotReblog}
-
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
-
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Photo}
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                        </li>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Text}
 
 
-                {block:Panorama}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                      {block:Photo}
+                        <li class="post post-index">
+                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
 
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">panorama</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
+                          {block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}">photo</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
 
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">panorama</a>
-                  {/block:NotReblog}
+                          {block:NotReblog}
+                            <span>made a</span>
+                            <a href="{permalink}">photo post</a>
+                          {/block:NotReblog}
 
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
 
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Panorama}
-
-
-                {block:Photoset}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
-
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">photoset</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
-
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">photoset</a>
-                  {/block:NotReblog}
-
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
-
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Photoset}
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                        </li>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Photo}
 
 
-                {block:Quote}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                      {block:Panorama}
+                        <li class="post post-index">
+                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
 
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">quote</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
+                          {block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}">panorama</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
 
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">quote post</a></a>
-              {/block:NotReblog}
+                          {block:NotReblog}
+                            <span>made a</span>
+                            <a href="{permalink}">panorama</a>
+                          {/block:NotReblog}
 
-              {block:Date}
-              <span class="timeago">about {TimeAgo}</span>
-              {/Block:Date}
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
 
-              <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                  <a href="{TagURL}"> #{Tag}</a>
-                  {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Quote}
-
-
-                {block:Link}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
-
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">link</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
-
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">link post</a>
-                  {/block:NotReblog}
-
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
-
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Link}
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                        </li>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Panorama}
 
 
-                {block:Chat}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                      {block:Photoset}
+                        <li class="post post-index">
+                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
 
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">chat</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
+                          {block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}">photoset</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
 
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">chat post</a>
-                  {/block:NotReblog}
+                          {block:NotReblog}
+                            <span>made a</span>
+                            <a href="{permalink}">photoset</a>
+                          {/block:NotReblog}
 
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
 
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Chat}
-
-
-                {block:Video}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
-
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">video</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
-
-                  {block:NotReblog}
-                  <span>made a</span>
-                  <a href="{permalink}">video post</a>
-                  {/block:NotReblog}
-
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
-
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Video}
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                        </li>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Photoset}
 
 
-                {block:Audio}
-                <li class="post post-index">
-                  <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                      {block:Quote}
+                        <li class="post post-index">
+                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
 
-                  {block:RebloggedFrom}
-                  <span>reblogged</span>
-                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                  <a href="{permalink}">audio</a>
-                  <span>from</span>
-                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                  {/block:RebloggedFrom}
+                          {block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}">quote</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
 
-                  {block:NotReblog}
-                  <span>made an</span>
-                  <a href="{permalink}">audio post</a>
-                  {/block:NotReblog}
+                          {block:NotReblog}
+                            <span>made a</span>
+                            <a href="{permalink}">quote post</a></a>
+                          {/block:NotReblog}
 
-                  {block:Date}
-                  <span class="timeago">about {TimeAgo}</span>
-                  {/Block:Date}
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
 
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Audio}
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                        </li>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Quote}
 
 
-                {/block:Posts}
-                </div>
+                      {block:Link}
+                      <li class="post post-index">
+                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+
+                        {block:RebloggedFrom}
+                          <span>reblogged</span>
+                          <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                          <a href="{permalink}">link</a>
+                          <span>from</span>
+                          <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                        {/block:RebloggedFrom}
+
+                        {block:NotReblog}
+                          <span>made a</span>
+                          <a href="{permalink}">link post</a>
+                        {/block:NotReblog}
+
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
+
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Link}
+
+
+                      {block:Chat}
+                      <li class="post post-index">
+                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+
+                        {block:RebloggedFrom}
+                        <span>reblogged</span>
+                          <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                          <a href="{permalink}">chat</a>
+                          <span>from</span>
+                          <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                        {/block:RebloggedFrom}
+
+                        {block:NotReblog}
+                          <span>made a</span>
+                          <a href="{permalink}">chat post</a>
+                        {/block:NotReblog}
+
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
+
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Chat}
+
+
+                      {block:Video}
+                      <li class="post post-index">
+                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+
+                        {block:RebloggedFrom}
+                          <span>reblogged</span>
+                          <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                          <a href="{permalink}">video</a>
+                          <span>from</span>
+                          <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                        {/block:RebloggedFrom}
+
+                        {block:NotReblog}
+                          <span>made a</span>
+                          <a href="{permalink}">video post</a>
+                        {/block:NotReblog}
+
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
+
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Video}
+
+
+                      {block:Audio}
+                      <li class="post post-index">
+                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+
+                        {block:RebloggedFrom}
+                          <span>reblogged</span>
+                          <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                          <a href="{permalink}">audio</a>
+                          <span>from</span>
+                          <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                        {/block:RebloggedFrom}
+
+                        {block:NotReblog}
+                          <span>made an</span>
+                          <a href="{permalink}">audio post</a>
+                        {/block:NotReblog}
+
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
+
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Audio}
+
+
+                    {/block:Posts}
+                  </div>
                 {/block:IndexPage}
 
 
                 {block:PermalinkPage}
-                {block:Posts}
-                {block:Text}
-                <li class="post text">
-                  {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>
-                  {/block:Title}{Body}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Text}{block:Photo}
-                <li class="post photo">
-                  <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
+                  {block:Posts}
+                    {block:Text}
+                      <li class="post text">
+                        {block:Title}
+                          <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        
+                        {Body}
+                        
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Text}
+                    
+                    
+                    {block:Photo}
+                      <li class="post photo">
+                        <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
 
-                  {block:Caption}
-                  <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Photo}{block:Panorama}
-                <li class="post panorama">
-                  {LinkOpenTag}
-                  <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                  {LinkCloseTag}{block:Caption}
-                  <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Panorama}{block:Photoset}
-                <li class="post photoset">
-                  {Photoset-500}{block:Caption}
-                  <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Photoset}{block:Quote}
-                <li class="post quote">
-                  "{Quote}"
+                        {block:Caption}
+                          <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Photo}
+                
+                
+                    {block:Panorama}
+                      <li class="post panorama">
+                        {LinkOpenTag}
+                          <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
+                        
+                        {block:Caption}
+                          <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Panorama}
+                
+                
+                    {block:Photoset}
+                      <li class="post photoset">
+                        {Photoset-500}
+                        
+                        {block:Caption}
+                          <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Photoset}
+                    
+                    
+                    {block:Quote}
+                      <li class="post quote">
+                        "{Quote}"
 
-                  {block:Source}
-                  <div class="source">{Source}</div>
-                  {/block:Source}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Quote}{block:Link}
-                <li class="post link">
-                  <a href="{URL}" class="link" {Target}>{Name}</a>
+                        {block:Source}
+                        <div class="source">{Source}</div>
+                        {/block:Source}
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Quote}
+                
+                
+                    {block:Link}
+                      <li class="post link">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
 
-                  {block:Description}
-                  <div class="description">{Description}</div>
-                  {/block:Description}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Link}{block:Chat}
-                <li class="post chat">
-                  {block:Title}
-                  <h3><a href="{Permalink}">{Title}</a></h3>
-                  {/block:Title}
+                        {block:Description}
+                          <div class="description">{Description}</div>
+                        {/block:Description}
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Link}
+                    
+                    
+                    {block:Chat}
+                      <li class="post chat">
+                        {block:Title}
+                          <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
 
-                  <ul class="chat">
-                    {block:Lines}
-                    <li class="{Alt} user_{UserNumber}">
-                      {block:Label}
-                      <span class="label">{Label}</span>
-                      {/block:Label}{Line}
-                    </li>
-                    {/block:Lines}
-                  </ul><br>
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Chat}{block:Video}
-                <li class="post video">
-                  {Video-500}{block:Caption}
-                  <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Video}{block:Audio}
-                <li class="post audio">
-                  {AudioEmbed}{block:Caption}
-                  <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>{block:HasTags}<span class="tags">{block:Tags}
-                      <a href="{TagURL}"> #{Tag}</a>
-                      {/block:Tags}</span>{/block:HasTags}</div>
-                </li>
-                {block:PostNotes}{PostNotes}{/block:PostNotes}
-                {/block:Audio}
-                {/block:Posts}
+                        <ul class="chat">
+                          {block:Lines}
+                          <li class="{Alt} user_{UserNumber}">
+                            {block:Label}
+                            <span class="label">{Label}</span>
+                            {/block:Label}{Line}
+                          </li>
+                          {/block:Lines}
+                        </ul>
+                        <br>
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Chat}
+                    
+                    
+                    {block:Video}
+                      <li class="post video">
+                        {Video-500}{block:Caption}
+                          <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Video}
+                    
+                    
+                    {block:Audio}
+                      <li class="post audio">
+                        {AudioEmbed}{block:Caption}
+                          <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                  
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Audio}
+                  {/block:Posts}
                 {/block:PermalinkPage}
 
               </ol>
@@ -803,12 +982,14 @@ p {
                   <li id="links">
                     {block:PreviousPage}
                       <a href="{PreviousPage}">&#171; Previous</a>
-                      {/block:PreviousPage}Page: {CurrentPage}{block:NextPage}
+                    {/block:PreviousPage}
+                    Page: {CurrentPage}
+                    {block:NextPage}
                       <a href="{NextPage}">Next &#187;</a>
-                      {/block:NextPage}
-                      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/archive">Archive</a>
-                    </li>
-                  {/block:Pagination}
+                    {/block:NextPage}
+                    &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/archive">Archive</a>
+                  </li>
+                {/block:Pagination}
               </ol>
             {/block:IfNotInfiniteScroll}
 
