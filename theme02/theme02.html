@@ -322,6 +322,20 @@
         vertical-align: middle;
       }
       
+      .answer-answer {
+        padding: 15px 0;
+      }
+        
+      .answer-answer img,
+      .answer-answer a,
+      .answer-answer span {
+        vertical-align: middle;
+      }
+        
+      .answer-answer img {
+        margin-right: 8px;
+      }
+      
       .permalink-pages {
         margin-bottom: 2em;
       }
@@ -889,6 +903,7 @@
                           {block:Answerer}
                             <img class="asker-portrait" src="{AnswererPortraitURL-24}">{Answerer}
                             <span>answered:</span>
+                            {Answer}
                           {/block:Answerer}
                           {Replies}
                         </div>
