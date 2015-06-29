@@ -354,6 +354,31 @@
         max-width: 150px;
       }
     </style>
+    
+    <script>
+      function getUsername() {
+        return "{Name}"
+      }
+      
+      function setUsername() {
+        spans = document.getElementsByClassName('username');
+        for (var i = 0; i < spans.length; i++) {
+          spans[i].innerHTML = getUsername();
+        }
+      }
+      
+      function watch(cname, id, callback) {
+        var prev_id = document.getElementsByClassName(cname)[0][id];
+        var t = setInterval(function() {
+          var curr_id = document.getElementsByClassName(cname)[0][id];
+          if (curr_id != prev_id) {
+            prev_id = curr_id;
+            callback();
+          }
+        }, 40);
+      };
+    </script>
+    
   </head>
   <body>
     <div class="wrapper">
@@ -603,7 +628,7 @@
 
                       {block:Link}
                       <li class="post post-index">
-                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span class="username"></span>
 
                         {block:RebloggedFrom}
                           <span>reblogged</span>
@@ -638,7 +663,7 @@
 
                       {block:Chat}
                       <li class="post post-index">
-                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span class="username"></span>
 
                         {block:RebloggedFrom}
                         <span>reblogged</span>
@@ -1016,6 +1041,12 @@
     </div>
     {block:IfInfiniteScroll}
       <script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+      <script>
+          watch('autopagerize_page_element', 'childElementCount', setUsername);
+      </script>
     {/block:IfInfiniteScroll}
+    <script>
+      setUsername();
+    </script>
   </body>
 </html>
