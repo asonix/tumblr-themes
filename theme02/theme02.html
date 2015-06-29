@@ -300,6 +300,24 @@
         color: #999;
         float: right;
       }
+      
+      .answer .asker-portrait {
+        border-radius: 12px;
+      }
+      
+      .answer .question {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .answer .question img {
+        margin-right: 8px;
+      }
+      .answer .question span,
+      .answer .question a,
+      .answer .question img {
+        vertical-align: middle;
+      }
 
       blockquote {
         margin: 0;
@@ -429,7 +447,7 @@
           <article class="post-article">
             <div class="page-description">
               {block:Description}
-              <img src="{PortraitURL-48}"><span id="location">{Description}</span>
+              <a href="{BlogURL}"><img src="{PortraitURL-48}"></a><span id="location">{Description}</span>
               {/block:Description}
             </div>
 
@@ -453,7 +471,7 @@
 
                       {block:Text}
                         <li class="post post-index">
-                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
                             <span>reblogged</span>
@@ -486,9 +504,46 @@
                       {/block:Text}
 
 
+                      {block:Answer}
+                        <li class="post post-index">
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
+
+                          {block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}">answer</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
+
+                          {block:NotReblog}
+                            <span>answered a</span>
+                            <a href="{permalink}">question</a>
+                            <span>from</span>
+                            {Asker}
+                          {/block:NotReblog}
+
+                          {block:Date}
+                            <span class="timeago">about {TimeAgo}</span>
+
+                            <div class="notes"><a href="{permalink}">{NoteCountWithLabel}</a>
+                              {block:HasTags}
+                                <span class="tags">
+                                  {block:Tags}
+                                    <a href="{TagURL}"> #{Tag}</a>
+                                  {/block:Tags}
+                                </span>
+                              {/block:HasTags}
+                            </div>
+                          {/Block:Date}
+                        </li>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      {/block:Answer}
+
+
                       {block:Photo}
                         <li class="post post-index">
-                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
                             <span>reblogged</span>
@@ -523,7 +578,7 @@
 
                       {block:Panorama}
                         <li class="post post-index">
-                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
                             <span>reblogged</span>
@@ -558,7 +613,7 @@
 
                       {block:Photoset}
                         <li class="post post-index">
-                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
                             <span>reblogged</span>
@@ -593,7 +648,7 @@
 
                       {block:Quote}
                         <li class="post post-index">
-                          <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
                             <span>reblogged</span>
@@ -628,9 +683,9 @@
 
                       {block:Link}
                       <li class="post post-index">
-                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span class="username"></span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
-                        {block:RebloggedFrom}
+                          {block:RebloggedFrom}
                           <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
                           <a href="{permalink}">link</a>
@@ -663,9 +718,9 @@
 
                       {block:Chat}
                       <li class="post post-index">
-                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span class="username"></span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
-                        {block:RebloggedFrom}
+                          {block:RebloggedFrom}
                         <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
                           <a href="{permalink}">chat</a>
@@ -698,9 +753,9 @@
 
                       {block:Video}
                       <li class="post post-index">
-                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
-                        {block:RebloggedFrom}
+                          {block:RebloggedFrom}
                           <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
                           <a href="{permalink}">video</a>
@@ -733,9 +788,9 @@
 
                       {block:Audio}
                       <li class="post post-index">
-                        <img src="{PortraitURL-30}" class="post-portrait" alt="portrait"><span>{Name}</span>
+                          <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
-                        {block:RebloggedFrom}
+                          {block:RebloggedFrom}
                           <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
                           <a href="{permalink}">audio</a>
@@ -796,6 +851,38 @@
                       </li>
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Text}
+
+
+                    {block:Answer}
+                      <li class="post answer">
+                        <div class="question">
+                          <img class="asker-portrait" src="{AskerPortraitURL-24}">{Asker}
+                          <span>asked:</span>
+                          <span>{Question}</span>
+                        </div>
+                        <div class="answer-answer">
+                          {block:Answerer}
+                            <img class="asker-portrait" src="{AnswererPortraitURL-24}">{Answerer}
+                            <span>answered:</span>
+                          {/block:Answerer}
+                          {Replies}
+                        </div>
+                        
+                        {block:Date}
+                          <div class="notes">
+                            <a href="{permalink}">{NoteCountWithLabel}</a>
+                            {block:HasTags}
+                              <span class="tags">
+                                {block:Tags}
+                                 <a href="{TagURL}"> #{Tag}</a>
+                                {/block:Tags}
+                              </span>
+                            {/block:HasTags}
+                          </div>
+                        {/block:Date}
+                      </li>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    {/block:Answer}
                     
                     
                     {block:Photo}
