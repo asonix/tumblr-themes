@@ -283,6 +283,9 @@
       .post-index > a,
       .post-index > span {
         vertical-align: middle;
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
       }
 
       .post.post-index img {
@@ -318,6 +321,10 @@
       .answer .question img {
         vertical-align: middle;
       }
+      
+      .permalink-pages {
+        margin-bottom: 2em;
+      }
 
       blockquote {
         margin: 0;
@@ -336,6 +343,15 @@
 
       .post img {
         max-width: 100%;
+      }
+      
+      .notes .avatar_frame {
+        height: 16px;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      .notes .avatar {
+        border-radius: 8px;
       }
 
       .page.other {
@@ -849,6 +865,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Text}
 
@@ -881,6 +906,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Answer}
                     
@@ -906,6 +940,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Photo}
                 
@@ -933,6 +976,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Panorama}
                 
@@ -958,6 +1010,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} 
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Photoset}
                     
@@ -983,6 +1044,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Quote}
                 
@@ -1008,6 +1078,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Link}
                     
@@ -1042,6 +1121,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Chat}
                     
@@ -1065,6 +1153,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Video}
                     
@@ -1088,6 +1185,15 @@
                           </div>
                         {/block:Date}
                       </li>
+                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PreviousPost}
+                        <a href="{PreviousPost}">PreviousPost</a>
+                      {/block:PreviousPost} |
+                         
+                      {block:NextPost}
+                        <a href="{NextPost}">Next Post</a>
+                      {/block:NextPost} 
+                    </div>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Audio}
                   {/block:Posts}
@@ -1127,13 +1233,15 @@
       </div>
     </div>
     {block:IfInfiniteScroll}
-      <script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
-      <script>
+      {block:IndexPage}
+        <script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+        <script>
           watch('autopagerize_page_element', 'childElementCount', setUsername);
+        </script>
+      {/block:IfInfiniteScroll}
+      <script>
+        setUsername();
       </script>
-    {/block:IfInfiniteScroll}
-    <script>
-      setUsername();
-    </script>
+    {/block:IndexPage}
   </body>
 </html>
