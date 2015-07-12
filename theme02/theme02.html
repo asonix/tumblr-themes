@@ -432,12 +432,13 @@
       
       
       .individual-post-article {
-        min-width: 562px;
+        min-width: 577px;
       }
       
       .individual-post-article > ol {
         padding: 0px;
         margin: 0 15px;
+        position: fixed;
       }
       
       .individual-post-article .post {
@@ -445,13 +446,19 @@
         border-radius: 3px;
         border: 1px solid #eee;
         min-width: 500px;
+        max-height: 80vh;
+        overflow: auto;
+      }
+      
+      .individual-post-article .post blockquote {
+        padding-right: 0;
       }
       
       .visible {
         display: block !important;
       }
       
-      @media (max-width: 1320px) {
+      @media (max-width: 1500px) {
         .individual-post-article {
           display: none;
         }
