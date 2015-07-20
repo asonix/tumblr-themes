@@ -304,7 +304,12 @@
         border-right: 0px;
         border-bottom: 0px;
         padding: 1em 0;
+        cursor: pointer;
         border-top: 1px solid #eee;
+      }
+      
+      .post-index:hover {
+        background-color: #f9f9f9;
       }
 
       .post-index > img,
@@ -402,6 +407,7 @@
 
       .like-article {
         width: 50%;
+        display: none;
       }
 
       .like-wrapper {
@@ -433,6 +439,7 @@
       
       .individual-post-article {
         min-width: 577px;
+        display: none;
       }
       
       .individual-post-article > ol {
@@ -445,6 +452,7 @@
         display: none;
         border-radius: 3px;
         border: 1px solid #eee;
+        background-color: #fff;
         min-width: 500px;
         max-height: 80vh;
         overflow: auto;
@@ -454,7 +462,8 @@
         padding-right: 0;
       }
       
-      .visible {
+      .visible,
+      .article-visible {
         display: block !important;
       }
       
@@ -495,19 +504,24 @@
         for (var i = 0; i < postsPostArticle.length; ++i) {
           postsPostArticle[i].onclick = (function(i) {
             return function() {
-              console.log(i);
-              console.log(postsIndividualPostArticle[i]);
-              console.log(postsIndividualPostArticle[i].classList);
+              
+              individualArticle = document.getElementsByClassName('individual-post-article')[0];
+              likeArticle = document.getElementsByClassName('individual-post-article')[0];
+              
               if (!postsIndividualPostArticle[i].classList.contains('visible')) {
                 currentlyVisible = document.getElementsByClassName('visible')[0];
                 if (currentlyVisible) {
                   currentlyVisible.classList.remove('visible');
                 }
                 postsIndividualPostArticle[i].classList.add('visible');
-                console.log('Adding visible');
+                if (!individualArticle.classList.contains('article-visible')) {
+                  likeArticle.classList.remove('article-visible');
+                  individualArticle.classList.add('article-visible');
+                }
               } else {
                 postsIndividualPostArticle[i].classList.remove('visible');
-                console.log('removing visible');
+                individualArticle.classList.remove('article-visible');
+                likeArticle.classList.add('article-visible');
               }
             }
           })(i)
@@ -610,7 +624,7 @@
 
 
                       {block:Text}
-                        <li class="post post-index">
+                        <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -645,7 +659,7 @@
 
 
                       {block:Answer}
-                        <li class="post post-index">
+                        <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -682,7 +696,7 @@
 
 
                       {block:Photo}
-                        <li class="post post-index">
+                        <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -717,7 +731,7 @@
 
 
                       {block:Panorama}
-                        <li class="post post-index">
+                        <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -752,7 +766,7 @@
 
 
                       {block:Photoset}
-                        <li class="post post-index">
+                        <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -787,7 +801,7 @@
 
 
                       {block:Quote}
-                        <li class="post post-index">
+                        <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -822,7 +836,7 @@
 
 
                       {block:Link}
-                      <li class="post post-index">
+                      <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span class="username"></span></a>
 
                           {block:RebloggedFrom}
@@ -857,7 +871,7 @@
 
 
                       {block:Chat}
-                      <li class="post post-index">
+                      <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span class="username">{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -892,7 +906,7 @@
 
 
                       {block:Video}
-                      <li class="post post-index">
+                      <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -927,7 +941,7 @@
 
 
                       {block:Audio}
-                      <li class="post post-index">
+                      <li class="post post-index" title="Click to show post">
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
@@ -1375,7 +1389,7 @@
           
           
           {block:IndexPage}
-          <article class="individual-post-article like-article">
+          <article class="individual-post-article">
             <ol>
               <div class="autopagerize_page_element_2">
                 {block:Posts}
@@ -1735,15 +1749,17 @@
                 {/block:Posts}
               </div>
             </ol>
-            {block:Likes}
+          </article>
+          {block:Likes}
+            <article class="like-article article-visible">
                 <div class="like-wrapper">
                   <div>
                     <a href="http://www.tumblr.com/liked/by/{name}"><p>Recent Likes</p></a>
                     {Likes limit="3" summarize="100" width="150"}
                   </div>
                 </div>
-            {/block:Likes}
-          </article>
+            </article>
+          {/block:Likes}
           <!--
           -->
           {/block:IndexPage}
