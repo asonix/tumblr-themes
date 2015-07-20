@@ -515,13 +515,17 @@
                 }
                 postsIndividualPostArticle[i].classList.add('visible');
                 if (!individualArticle.classList.contains('article-visible')) {
-                  likeArticle.classList.remove('article-visible');
+                  if (likeArticle) {
+                    likeArticle.classList.remove('article-visible');
+                  }
                   individualArticle.classList.add('article-visible');
                 }
               } else {
                 postsIndividualPostArticle[i].classList.remove('visible');
                 individualArticle.classList.remove('article-visible');
-                likeArticle.classList.add('article-visible');
+                if (likeArticle) {
+                  likeArticle.classList.add('article-visible');
+                }
               }
             }
           })(i)
