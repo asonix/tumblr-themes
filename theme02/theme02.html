@@ -540,6 +540,8 @@
                 currentlyActive  = document.getElementsByClassName('active-link')[0];
                 if (currentlyVisible) {
                   currentlyVisible.classList.remove('visible');
+                }
+                if (currentlyActive) {
                   currentlyActive.classList.remove('active-link');
                 }
                 postsIndividualPostArticle[i].classList.add('visible');
