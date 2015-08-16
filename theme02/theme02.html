@@ -509,7 +509,7 @@ function getUsername() {
 function setUsername() {
     "use strict";
     var spans = document.getElementsByClassName('username');
-    var i = 0;
+    var i;
     for (i = 0; i < spans.length; i += 1) {
         spans[i].innerHTML = getUsername();
     }
@@ -529,15 +529,26 @@ function watch(cname, id, callback) {
 
 function showPost() {
     "use strict";
-    var postArticle = document.getElementsByClassName('post-article')[0];
-    var postsPostArticle = postArticle.getElementsByClassName('post');
-    var individualPostArticle = document.getElementsByClassName('individual-post-article')[0];
-    var postsIndividualPostArticle = individualPostArticle.getElementsByClassName('post');
+
+    function initialize() {
+        var postArticle = document.getElementsByClassName('post-article')[0];
+        var postsPostArticle = postArticle.getElementsByClassName('post');
+
+        var i;
+        for (i = 0; i < postsPostArticle.length; i += 1) {
+            postsPostArticle[i].onclick = articleClick(i);
+        }
+    }
 
     function articleClick(i) {
         return function () {
 
             var individualArticle = document.getElementsByClassName('individual-post-article')[0];
+            var postsIndividualPostArticle = individualArticle.getElementsByClassName('post');
+
+            var postArticle = document.getElementsByClassName('post-article')[0];
+            var postsPostArticle = postArticle.getElementsByClassName('post');
+
             var likeArticle = document.getElementsByClassName('like-article')[0];
 
             if (!postsIndividualPostArticle[i].classList.contains('visible')) {
@@ -568,10 +579,7 @@ function showPost() {
         };
     }
 
-    var i = 0;
-    for (i = 0; i < postsPostArticle.length; i += 1) {
-        postsPostArticle[i].onclick = articleClick(i);
-    }
+    initialize();
 }
 
 function postNav() {
@@ -639,7 +647,7 @@ function postNav() {
     function getNestedElementByClass(arr) {
         var elem = document.getElementsByClassName(arr[0])[0];
 
-        var i = 1;
+        var i;
         for (i = 1; i < arr.length; i += 1) {
             elem = elem.getElementsByClassName(arr[i])[0];
         }
