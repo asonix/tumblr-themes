@@ -474,9 +474,29 @@
         display: block !important;
       }
       
+      .bar-narrow {
+        display: none;
+      }
+      
       @media (max-width: 1500px) {
         .individual-post-article {
           display: none;
+        }
+        .bar-wide {
+          display: none;
+        }
+        .bar-narrow {
+          display: block;
+          text-align: center;
+        }
+        header {
+          left: 52px;
+        }
+        nav.sidebar {
+          min-width: 52px;
+        }
+        .sidebar .fixed {
+          width: 52px;
         }
       }
     </style>
@@ -646,7 +666,7 @@ function postNav() {
       <div class="container">
         <nav class="sidebar">
           <div class="fixed">
-            <ul class="page-title">
+            <ul class="page-title bar-wide">
               <a href="/" class="btitle">
                 <li>
                   {block:ShowAvatar}
@@ -656,38 +676,80 @@ function postNav() {
                 </li>
               </a>
             </ul>
-            <ul>
-              <a href="/" {block:IndexPage}class="sidebar-selected"{/block:IndexPage}><li>Posts</li></a>
+            <ul class="page-title bar-narrow">
+              <a href="/" class="btitle" title="{Title}">
+                <li>
+                  {block:ShowAvatar}
+                    <img src="{PortraitURL-40}" id="title-logo" alt="Logo">
+                  {/block:ShowAvatar}
+                </li>
+              </a>
+            </ul>
+            <ul class="bar-wide">
+              <a href="/" {block:IndexPage}class="sidebar-selected"{/block:IndexPage}><li>P - Posts</li></a>
               {block:AskEnabled}
-                <a href="/ask"><li>{AskLabel}</li></a>
+                <a href="/ask"><li>A - {AskLabel}</li></a>
               {/block:AskEnabled}
               {block:SubmissionsEnabled}
-                <a href="/submit"><li>{SubmitLabel}</li></a>
+                <a href="/submit"><li>S - {SubmitLabel}</li></a>
               {/block:SubmissionsEnabled}
               {block:IfLinkOne}
-                <a href="{text:LinkOneUrl}"><li>{text:LinkOne}</li></a>
+                <a href="{text:LinkOneUrl}"><li>1 - {text:LinkOne}</li></a>
               {/block:IfLinkOne}
               {block:IfLinkTwo}
-                <a href="{text:LinkTwoUrl}"><li>{text:LinkTwo}</li></a>
+                <a href="{text:LinkTwoUrl}"><li>2 - {text:LinkTwo}</li></a>
               {/block:IfLinkTwo}
               {block:IfLinkThree}
-                <a href="{text:LinkThreeUrl}"><li>{text:LinkThree}</li></a>
+                <a href="{text:LinkThreeUrl}"><li>3 - {text:LinkThree}</li></a>
               {/block:IfLinkThree}
               {block:IfLinkFour}
-                <a href="{text:LinkFourUrl}"><li>{text:LinkFour}</li></a>
+                <a href="{text:LinkFourUrl}"><li>4 - {text:LinkFour}</li></a>
               {/block:IfLinkFour}
               {block:IfLinkFive}
-                <a href="{text:LinkFiveUrl}"><li>{text:LinkFive}</li></a>
+                <a href="{text:LinkFiveUrl}"><li>5 - {text:LinkFive}</li></a>
               {/block:IfLinkFive}
               {block:IfLinkSix}
-                <a href="{text:LinkSixUrl}"><li>{text:LinkSix}</li></a>
+                <a href="{text:LinkSixUrl}"><li>6 - {text:LinkSix}</li></a>
               {/block:IfLinkSix}
               {block:IfBlogCopyright}
               <a href="/"><li>Blog &copy; {Title} {CopyrightYears}</li></a>
               {/block:IfBlogCopyright}
             </ul>
-            <ul class="theme-copyright">
+            <ul class="bar-narrow">
+              <a href="/" {block:IndexPage}class="sidebar-selected"{/block:IndexPage} title="Posts"><li>P</li></a>
+              {block:AskEnabled}
+                <a href="/ask" title="Ask"><li>A</li></a>
+              {/block:AskEnabled}
+              {block:SubmissionsEnabled}
+                <a href="/submit" title="Submit"><li>S</li></a>
+              {/block:SubmissionsEnabled}
+              {block:IfLinkOne}
+                <a href="{text:LinkOneUrl}" title="{text:LinkOne}"><li>1</li></a>
+              {/block:IfLinkOne}
+              {block:IfLinkTwo}
+                <a href="{text:LinkTwoUrl}" title="{text:LinkTwo}"><li>2</li></a>
+              {/block:IfLinkTwo}
+              {block:IfLinkThree}
+                <a href="{text:LinkThreeUrl}" title="{text:LinkThree}"><li>3</li></a>
+              {/block:IfLinkThree}
+              {block:IfLinkFour}
+                <a href="{text:LinkFourUrl}" title="{text:LinkFour}"><li>4</li></a>
+              {/block:IfLinkFour}
+              {block:IfLinkFive}
+                <a href="{text:LinkFiveUrl}" title="{text:LinkFive}"><li>5</li></a>
+              {/block:IfLinkFive}
+              {block:IfLinkSix}
+                <a href="{text:LinkSixUrl}" title="{text:LinkSix}"><li>6</li></a>
+              {/block:IfLinkSix}
+              {block:IfBlogCopyright}
+              <a href="/"><li>Blog &copy; {Title} {CopyrightYears}</li></a>
+              {/block:IfBlogCopyright}
+            </ul>
+            <ul class="theme-copyright bar-wide">
               <a href="https://asonix.tumblr.com"><li><img src="http://38.media.tumblr.com/avatar_555f1a0f021e_40.png" id="title-logo" alt="Logo"><span>Theme &copy; Asonix</span></li></a>
+            </ul>
+            <ul class="theme-copyright bar-narrow">
+              <a href="https://asonix.tumblr.com" title="Theme &copy; Asonix"><li><img src="http://38.media.tumblr.com/avatar_555f1a0f021e_40.png" id="title-logo" alt="Logo"></li></a>
             </ul>
           </div>
         </nav>
