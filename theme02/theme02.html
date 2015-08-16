@@ -37,6 +37,9 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans' rel='stylesheet' type='text/css'>
 
     <style>
+      .bold {
+        font-weight: 600;
+      }
       .wrapper {
         min-height: 100vh;
         display: flex;
@@ -311,6 +314,10 @@
       .post-index:hover {
         background-color: #f9f9f9;
       }
+      
+      .active-link {
+        background-color: #f9f9f9;
+      }
 
       .post-index > img,
       .post-index > a,
@@ -510,10 +517,13 @@
               
               if (!postsIndividualPostArticle[i].classList.contains('visible')) {
                 currentlyVisible = document.getElementsByClassName('visible')[0];
+                currentlyActive  = document.getElementsByClassName('active-link')[0];
                 if (currentlyVisible) {
                   currentlyVisible.classList.remove('visible');
+                  currentlyActive.classList.remove('active-link');
                 }
                 postsIndividualPostArticle[i].classList.add('visible');
+                postsPostArticle[i].classList.add('active-link');
                 if (!individualArticle.classList.contains('article-visible')) {
                   if (likeArticle) {
                     likeArticle.classList.remove('article-visible');
@@ -522,6 +532,7 @@
                 }
               } else {
                 postsIndividualPostArticle[i].classList.remove('visible');
+                postsPostArticle[i].classList.remove('active-link');
                 individualArticle.classList.remove('article-visible');
                 if (likeArticle) {
                   likeArticle.classList.add('article-visible');
@@ -531,6 +542,85 @@
           })(i)
         }
       };
+    </script>
+    <script>
+function postNav() {
+
+  function initialize() {
+    document.addEventListener('keydown', function(e) {
+      if(e.keyCode == 74 || e.keyCode == 75) {
+        handleKey(e.keyCode);
+        handleScroll();
+      }
+    });
+  }
+
+  function handleKey(code) {
+    activePost = getNestedElementByClass(['autopagerize_page_element_2', 'visible']);
+    activeLink = getNestedElementByClass(['autopagerize_page_element', 'active-link']);
+
+    if(activePost) {
+      if(code == 74) { // j
+        newElem = activePost.nextElementSibling;
+        newLink = activeLink.nextElementSibling;
+        if(newElem.classList.contains('tumblrAutoPagerTwo_page_info_2')) {
+          newElem = newElem.nextElementSibling;
+          newLink = newLink.nextElementSibling;
+        }
+      }
+      else if(code == 75) { // k
+        newElem = activePost.previousElementSibling;
+        newLink = activeLink.previousElementSibling;
+        if(newElem.classList.contains('tumblrAutoPagerTwo_page_info_2')) {
+          newElem = newElem.previousElementSibling;
+          newLink = newLink.previousElementSibling;
+        }
+      }
+
+      if(newElem) {
+        if(newElem.classList.contains('post')) {
+          activePost.classList.remove('visible');
+          activeLink.classList.remove('active-link');
+          newElem.classList.add('visible');
+          newLink.classList.add('active-link');
+        }
+      }
+    } else {
+      postContainer = document.getElementsByClassName('autopagerize_page_element_2')[0];
+      linkContainer = document.getElementsByClassName('autopagerize_page_element')[0];
+      activePost = postContainer.firstElementChild;
+      activeLink = linkContainer.firstElementChild;
+
+      activePost.classList.add('visible');
+      activeLink.classList.add('active-link');
+
+      individualArticle = document.getElementsByClassName('individual-post-article')[0];
+      likeArticle       = document.getElementsByClassName('like-article')[0];
+
+      if (likeArticle) {
+        likeArticle.classList.remove('article-visible');
+      }
+      individualArticle.classList.add('article-visible');
+    }
+  }
+
+  function getNestedElementByClass(arr) {
+    elem = document.getElementsByClassName(arr[0])[0];
+
+    for(var i = 1; i < arr.length; ++i)
+      elem = elem.getElementsByClassName(arr[i])[0];
+
+    return elem;
+  }
+
+  function handleScroll() {
+    activeLink = getNestedElementByClass(['autopagerize_page_element', 'active-link']);
+    activeLink.scrollIntoView();
+    window.scrollBy(0,-60);
+  }
+
+  initialize();
+}
     </script>
     
   </head>
@@ -634,14 +724,14 @@
                           {block:RebloggedFrom}
                             <span>reblogged</span>
                             <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                            <a href="{permalink}">text post</a>
+                            <a href="{permalink}" class="bold">text post</a>
                             <span>from</span>
                             <a href="{ReblogParentURL}">{ReblogParentName}</a>
                           {/block:RebloggedFrom}
 
                           {block:NotReblog}
                             <span>made a</span>
-                            <a href="{permalink}">text post</a>
+                            <a href="{permalink}" class="bold">text post</a>
                           {/block:NotReblog}
 
                           {block:Date}
@@ -669,14 +759,14 @@
                           {block:RebloggedFrom}
                             <span>reblogged</span>
                             <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                            <a href="{permalink}">answer</a>
+                            <a href="{permalink}" class="bold">answer</a>
                             <span>from</span>
                             <a href="{ReblogParentURL}">{ReblogParentName}</a>
                           {/block:RebloggedFrom}
 
                           {block:NotReblog}
                             <span>answered a</span>
-                            <a href="{permalink}">question</a>
+                            <a href="{permalink}" class="bold">question</a>
                             <span>from</span>
                             <span>{Asker}</span>
                           {/block:NotReblog}
@@ -706,14 +796,14 @@
                           {block:RebloggedFrom}
                             <span>reblogged</span>
                             <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                            <a href="{permalink}">photo</a>
+                            <a href="{permalink}" class="bold">photo</a>
                             <span>from</span>
                             <a href="{ReblogParentURL}">{ReblogParentName}</a>
                           {/block:RebloggedFrom}
 
                           {block:NotReblog}
                             <span>made a</span>
-                            <a href="{permalink}">photo post</a>
+                            <a href="{permalink}" class="bold">photo post</a>
                           {/block:NotReblog}
 
                           {block:Date}
@@ -741,14 +831,14 @@
                           {block:RebloggedFrom}
                             <span>reblogged</span>
                             <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                            <a href="{permalink}">panorama</a>
+                            <a href="{permalink}" class="bold">panorama</a>
                             <span>from</span>
                             <a href="{ReblogParentURL}">{ReblogParentName}</a>
                           {/block:RebloggedFrom}
 
                           {block:NotReblog}
                             <span>made a</span>
-                            <a href="{permalink}">panorama</a>
+                            <a href="{permalink}" class="bold">panorama</a>
                           {/block:NotReblog}
 
                           {block:Date}
@@ -776,14 +866,14 @@
                           {block:RebloggedFrom}
                             <span>reblogged</span>
                             <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                            <a href="{permalink}">photoset</a>
+                            <a href="{permalink}" class="bold">photoset</a>
                             <span>from</span>
                             <a href="{ReblogParentURL}">{ReblogParentName}</a>
                           {/block:RebloggedFrom}
 
                           {block:NotReblog}
                             <span>made a</span>
-                            <a href="{permalink}">photoset</a>
+                            <a href="{permalink}" class="bold">photoset</a>
                           {/block:NotReblog}
 
                           {block:Date}
@@ -811,14 +901,14 @@
                           {block:RebloggedFrom}
                             <span>reblogged</span>
                             <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                            <a href="{permalink}">quote</a>
+                            <a href="{permalink}" class="bold">quote</a>
                             <span>from</span>
                             <a href="{ReblogParentURL}">{ReblogParentName}</a>
                           {/block:RebloggedFrom}
 
                           {block:NotReblog}
                             <span>made a</span>
-                            <a href="{permalink}">quote post</a></a>
+                            <a href="{permalink}" class="bold">quote post</a></a>
                           {/block:NotReblog}
 
                           {block:Date}
@@ -846,14 +936,14 @@
                           {block:RebloggedFrom}
                           <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                          <a href="{permalink}">link</a>
+                          <a href="{permalink}" class="bold">link</a>
                           <span>from</span>
                           <a href="{ReblogParentURL}">{ReblogParentName}</a>
                         {/block:RebloggedFrom}
 
                         {block:NotReblog}
                           <span>made a</span>
-                          <a href="{permalink}">link post</a>
+                          <a href="{permalink}" class="bold">link post</a>
                         {/block:NotReblog}
 
                           {block:Date}
@@ -881,14 +971,14 @@
                           {block:RebloggedFrom}
                         <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                          <a href="{permalink}">chat</a>
+                          <a href="{permalink}" class="bold">chat</a>
                           <span>from</span>
                           <a href="{ReblogParentURL}">{ReblogParentName}</a>
                         {/block:RebloggedFrom}
 
                         {block:NotReblog}
                           <span>made a</span>
-                          <a href="{permalink}">chat post</a>
+                          <a href="{permalink}" class="bold">chat post</a>
                         {/block:NotReblog}
 
                           {block:Date}
@@ -916,14 +1006,14 @@
                           {block:RebloggedFrom}
                           <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                          <a href="{permalink}">video</a>
+                          <a href="{permalink}" class="bold">video</a>
                           <span>from</span>
                           <a href="{ReblogParentURL}">{ReblogParentName}</a>
                         {/block:RebloggedFrom}
 
                         {block:NotReblog}
                           <span>made a</span>
-                          <a href="{permalink}">video post</a>
+                          <a href="{permalink}" class="bold">video post</a>
                         {/block:NotReblog}
 
                           {block:Date}
@@ -951,14 +1041,14 @@
                           {block:RebloggedFrom}
                           <span>reblogged</span>
                           <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                          <a href="{permalink}">audio</a>
+                          <a href="{permalink}" class="bold">audio</a>
                           <span>from</span>
                           <a href="{ReblogParentURL}">{ReblogParentName}</a>
                         {/block:RebloggedFrom}
 
                         {block:NotReblog}
                           <span>made an</span>
-                          <a href="{permalink}">audio post</a>
+                          <a href="{permalink}" class="bold">audio post</a>
                         {/block:NotReblog}
 
                           {block:Date}
@@ -2038,6 +2128,8 @@ window.addEventListener ? window.addEventListener('load', tumblrAutoPagerTwo.ini
         <script>
           watch('autopagerize_page_element', 'childElementCount', setUsername);
           watch('autopagerize_page_element', 'childElementCount', showPost);
+
+          postNav();
         </script>
       {/block:IfInfiniteScroll}
       <script>
