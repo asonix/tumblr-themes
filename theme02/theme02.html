@@ -7,9 +7,12 @@
 
     <meta name="if:infinite scroll" content="1" />
     <meta name="if:blog copyright" content="1" />
+    <meta name="if:Dark Mode" content="0" />
     
     <meta name="color:Link" content="#446e9b"/>
     <meta name="color:Link Hover" content="#2d4866"/>
+    <meta name="color:Sidebar" content="#373d47" />
+    <meta name="color:Sidebar Hover" content="#24272d" />
     
     <meta name="text:TagOneName" />
     <meta name="text:TagOneURL" />
@@ -55,6 +58,13 @@ body {
   min-height: 100%;
   font-family: 'Open Sans';
   font-size: 14px;
+  {block:IfNotDarkMode}
+  background-color: #fff;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  background-color: #222;
+  {/block:IfDarkMode}
 }
 
 header {
@@ -62,13 +72,29 @@ header {
   height: 50px;
   left: 230px;
   right: 0px;
+  
+  {block:IfDarkMode}
+  background-color: #222;
+  border-bottom: 1px #333 solid;
+  {/block:IfDarkMode}
+  
+  {block:IfNotDarkMode}
   background-color: #fff;
   border-bottom: 1px #eee solid;
+  {/block:IfNotDarkMode}
 }
 
 header h1 {
   line-height: 50px;
+  
+  {block:IfDarkMode}
+  color: #eee;
+  {/block:IfDarkMode}
+  
+  {block:IfNotDarkMode}
   color: #444;
+  {/block:IfNotDarkMode}
+  
   font-size: 18px;
   padding: 0;
   margin: 0;
@@ -80,11 +106,24 @@ header h1 span:first-child {
 
 .page-location a:link,
 .page-location a:visited {
+  {block:IfDarkMode}
+  color: #eee;
+  {/block:IfDarkMode}
+  
+  {block:IfNotDarkMode}
   color: #444;
+  {/block:IfNotDarkMode}
 }
 .page-location a:hover,
 .page-location a:active {
+  {block:IfDarkMode}
+  color: #eee;
+  {/block:IfDarkMode}
+  
+  {block:IfNotDarkMode}
   color: #444;
+  {/block:IfNotDarkMode}
+  
   text-decoration: underline;
 }
 
@@ -96,7 +135,7 @@ header h1 span:first-child {
 nav.sidebar {
   min-width: 230px;
   position: relative;
-  background-color: #373d47;
+  background-color: {color:Sidebar};
   font-size: 13px;
 }
 
@@ -146,16 +185,29 @@ li {
 }
 
 a, a:link, a:visited {
+  {block:IfDarkMode}
   color: #979da7;
+  {/block:IfDarkMode}
+  
+  {block:IfNotDarkMode}
+  color: #979da7;
+  {/block:IfNotDarkMode}
+
   text-decoration: none;
 }
 
 a:active, a:hover {
+  {block:IfDarkMode}
   color: #979da7;
+  {/block:IfDarkMode}
+  
+  {block:IfNotDarkMode}
+  color: #979da7;
+  {/block:IfNotDarkMode}
 }
 
 a:active > li, a:hover > li {
-  background-color: #24272d;
+  background-color: {color:Sidebar Hover};
 }
 
 a.btitle:active > li, a.btitle:hover > li {
@@ -208,7 +260,14 @@ article {
 }
 
 .page-description {
+  {block:IfNotDarkMode}
   color: #555555;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  color: #aaaaaa;
+  {/block:IfDarkMode}
+
   font-size: 16px;
   margin-bottom: 25px;
 }
@@ -226,7 +285,14 @@ article {
 }
 
 .tab-line {
+  {block:IfNotDarkMode}
   border-bottom: 1px solid #dddddd;
+  {/block:IfNotDarkMode}
+  
+  {block:IfDarkMode}
+  border-bottom: 1px solid #333;
+  {/block:IfDarkMode}
+
   margin-bottom: 15px;
 }
 
@@ -234,9 +300,19 @@ article {
   display: inline-block;
   padding: 10px 15px;
   font-weight: bold;
+  
+  {block:IfNotDarkMode}
   color: #333;
   border: 1px solid #dddddd;
   border-bottom: 1px solid #fff;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  color: #eee;
+  border: 1px solid #333;
+  border-bottom: 1px solid #222;
+  {/block:IfDarkMode}
+
   border-radius: 4px 4px 0 0;
 }
 
@@ -250,14 +326,28 @@ article {
 
 .common-tags .tag {
   display: inline-block;
-  background: whitesmoke;
+
+  {block:IfNotDarkMode}
+  background: #f5f5f5;
+  {/block:IfNotDarkMode}
+  
+  {block:IfDarkMode}
+  background: #272727;
+  {/block:IfDarkMode}
+
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 13px;
 }
 
 .common-tags .tag:hover {
+  {block:IfNotDarkMode}
   background-color: #eeeeee;
+  {/block:IfNotDarkMode}
+  
+  {block:IfDarkMode}
+  background-color: #333333;
+  {/block:IfDarkMode}
 }
 
 .common-tags a:link .tag,
@@ -291,7 +381,14 @@ section a:active {
   margin: 2em 0;
   vertical-align: top;
   height: auto;
+
+  {block:IfNotDarkMode}
   color: #222222;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  color: #dddddd;
+  {/block:IfDarkMode}
 }
 
 .post .notes {
@@ -311,15 +408,25 @@ section a:active {
   border-bottom: 0px;
   padding: 1em 0;
   cursor: pointer;
+
+  {block:IfNotDarkMode}
   border-top: 1px solid #eee;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  border-top: 1px solid #333;
+  {/block:IfDarkMode}
 }
 
+.active-link,
 .post-index:hover {
+  {block:IfNotDarkMode}
   background-color: #f9f9f9;
-}
+  {/block:IfNotDarkMode}
 
-.active-link {
-  background-color: #f9f9f9;
+  {block:IfDarkMode}
+  background-color: #2c2c2c;
+  {/block:IfDarkMode}
 }
 
 .post-index > img,
@@ -353,7 +460,13 @@ section a:active {
 
 .answer .question {
   padding: 15px 0;
+  {block:IfNotDarkMode}
   border-bottom: 1px solid #eee;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  border-bottom: 1px solid #333;
+  {/block:IfDarkMode}
 }
 
 .answer .question img {
@@ -386,7 +499,13 @@ section a:active {
 blockquote {
   margin: 0;
   padding: 0 1em;
+  {block:IfNotDarkMode}
   border-left: 1px solid #979da7;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  border-left: 1px solid #979da7;
+  {/block:IfDarkMode}
 }
 
 pre {
@@ -425,7 +544,14 @@ p {
 }
 
 .like-wrapper > div {
+  {block:IfNotDarkMode}
   border: 1px solid #eee;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  border: 1px solid #333;
+  {/block:IfDarkMode}
+
   border-radius: 3px;
 }
 
@@ -439,7 +565,13 @@ p {
 }
 
 #likes .like_post {
-  border-top: 1px solid #eee;
+  {block:IfNotDarkMode}
+  border: 1px solid #eee;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  border: 1px solid #333;
+  {/block:IfDarkMode}
 }
 
 #likes img {
@@ -461,8 +593,17 @@ p {
 .individual-post-article .post {
   display: none;
   border-radius: 3px;
+
+  {block:IfNotDarkMode}
   border: 1px solid #eee;
   background-color: #fff;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  border: 1px solid #333;
+  background-color: #222;
+  {/block:IfDarkMode}
+
   min-width: 500px;
   max-height: 80vh;
   overflow: auto;
