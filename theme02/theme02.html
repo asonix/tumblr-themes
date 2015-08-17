@@ -541,6 +541,14 @@ p {
 
 .like-wrapper {
   margin: 0 15px;
+
+  {block:IfNotDarkMode}
+  color: #222;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  color: #eee;
+  {/block:IfDarkMode}
 }
 
 .like-wrapper > div {
