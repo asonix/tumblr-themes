@@ -266,15 +266,15 @@ article {
 
 .page-description {
   {block:IfNotDarkMode}
-  color: #555555;
+  color: #555;
   {/block:IfNotDarkMode}
   
   {block:IfDarkerMode}
-  color: #aaaaaa;
+  color: #aaa;
   {/block:IfDarkerMode}
 
   {block:IfDarkMode}
-  color: #aaaaaa;
+  color: #aaa;
   {/block:IfDarkMode}
 
   font-size: 16px;
@@ -295,7 +295,7 @@ article {
 
 .tab-line {
   {block:IfNotDarkMode}
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
   {/block:IfNotDarkMode}
   
   {block:IfDarkMode}
@@ -310,7 +310,7 @@ article {
   
   {block:IfNotDarkMode}
   color: #333;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-bottom: 1px solid #fff;
   {/block:IfNotDarkMode}
 
@@ -358,11 +358,11 @@ article {
 
 .common-tags .tag:hover {
   {block:IfNotDarkMode}
-  background-color: #eeeeee;
+  background-color: #eee;
   {/block:IfNotDarkMode}
   
   {block:IfDarkMode}
-  background-color: #333333;
+  background-color: #333;
   {/block:IfDarkMode}
 }
 
@@ -399,11 +399,11 @@ section a:active {
   height: auto;
 
   {block:IfNotDarkMode}
-  color: #222222;
+  color: #222;
   {/block:IfNotDarkMode}
 
   {block:IfDarkMode}
-  color: #dddddd;
+  color: #ddd;
   {/block:IfDarkMode}
 }
 
@@ -515,6 +515,16 @@ section a:active {
 
 .permalink-pages {
   margin-bottom: 2em;
+}
+
+ol.notes {
+  {block:IfNotDarkMode}
+  color: #222;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  color: #ddd;
+  {/block:IfDarkMode}
 }
 
 blockquote {
@@ -1358,7 +1368,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1366,7 +1376,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Text}
 
@@ -1400,7 +1410,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1408,7 +1418,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Answer}
                     
@@ -1434,7 +1444,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1442,7 +1452,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Photo}
                 
@@ -1470,7 +1480,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1478,7 +1488,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Panorama}
                 
@@ -1504,7 +1514,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} 
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1512,7 +1522,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Photoset}
                     
@@ -1538,7 +1548,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1546,7 +1556,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Quote}
                 
@@ -1572,7 +1582,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1580,7 +1590,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Link}
                     
@@ -1615,7 +1625,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1623,7 +1633,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Chat}
                     
@@ -1647,7 +1657,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1655,7 +1665,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Video}
                     
@@ -1679,7 +1689,7 @@ function postNav() {
                           </div>
                         {/block:Date}
                       </li>
-                      {block:PermalinkPagination} <div class="permalink-pages">
+                      {block:PermalinkPagination}<li><div class="permalink-pages">
                       {block:PreviousPost}
                         <a href="{PreviousPost}">PreviousPost</a>
                       {/block:PreviousPost} |
@@ -1687,7 +1697,7 @@ function postNav() {
                       {block:NextPost}
                         <a href="{NextPost}">Next Post</a>
                       {/block:NextPost} 
-                    </div>{/block:PermalinkPagination}
+                    </div></li>{/block:PermalinkPagination}
                       {block:PostNotes}{PostNotes}{/block:PostNotes}
                     {/block:Audio}
                   {/block:Posts}
