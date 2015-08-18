@@ -5,7 +5,8 @@
 
 This is my second theme. As you might be able to tell, I was mostly just trying to mimic the gitlab UI.
 
-There are three varients out-of-the-box
+There are three varients out-of-the-box:
+
 ![theme02-1.png](https://raw.githubusercontent.com/asonix/tumblr-themes/master/theme02/theme-02-1.png)
 
 >Light Varient (default)
