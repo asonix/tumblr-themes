@@ -7,6 +7,7 @@
 
     <meta name="if:infinite scroll" content="1" />
     <meta name="if:blog copyright" content="1" />
+    <meta name="if:Darker Mode" content="0" />
     <meta name="if:Dark Mode" content="0" />
     
     <meta name="color:Link" content="#446e9b"/>
@@ -61,6 +62,10 @@ body {
   {block:IfNotDarkMode}
   background-color: #fff;
   {/block:IfNotDarkMode}
+  
+  {block:IfDarkerMode}
+  background-color: #222;
+  {/block:IfDarkerMode}
 
   {block:IfDarkMode}
   background-color: #222;
@@ -263,6 +268,10 @@ article {
   {block:IfNotDarkMode}
   color: #555555;
   {/block:IfNotDarkMode}
+  
+  {block:IfDarkerMode}
+  color: #aaaaaa;
+  {/block:IfDarkerMode}
 
   {block:IfDarkMode}
   color: #aaaaaa;
@@ -289,6 +298,10 @@ article {
   border-bottom: 1px solid #dddddd;
   {/block:IfNotDarkMode}
   
+  {block:IfDarkerMode}
+  border-bottom: 1px solid #333;
+  {/block:IfDarkerMode}
+  
   {block:IfDarkMode}
   border-bottom: 1px solid #333;
   {/block:IfDarkMode}
@@ -306,6 +319,12 @@ article {
   border: 1px solid #dddddd;
   border-bottom: 1px solid #fff;
   {/block:IfNotDarkMode}
+  
+  {block:IfDarkerMode}
+  color: #eee;
+  border: 1px solid #333;
+  border-bottom: 1px solid #222;
+  {/block:IfDarkerMode}
 
   {block:IfDarkMode}
   color: #eee;
@@ -406,12 +425,17 @@ section a:active {
   border-left: 0px;
   border-right: 0px;
   border-bottom: 0px;
-  padding: 1em 0;
+  padding: 1em;
+  box-sizing: border-box;
   cursor: pointer;
 
   {block:IfNotDarkMode}
   border-top: 1px solid #eee;
   {/block:IfNotDarkMode}
+  
+  {block:IfDarkerMode}
+  background-color: #fff;
+  {/block:IfDarkerMode}
 
   {block:IfDarkMode}
   border-top: 1px solid #333;
@@ -546,8 +570,12 @@ p {
   color: #222;
   {/block:IfNotDarkMode}
 
+  {block:IfDarkerMode}
+  background-color: #fff;
+  {/block:IfDarkerMode}
+
   {block:IfDarkMode}
-  color: #eee;
+  color: #fff;
   {/block:IfDarkMode}
 }
 
