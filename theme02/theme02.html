@@ -515,6 +515,13 @@ section a:active {
 
 .permalink-pages {
   margin-bottom: 2em;
+  {block:IfNotDarkMode}
+  color: #222;
+  {/block:IfNotDarkMode}
+
+  {block:IfDarkMode}
+  color: #ddd;
+  {/block:IfDarkMode}
 }
 
 ol.notes {
