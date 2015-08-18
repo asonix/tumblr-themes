@@ -8,6 +8,7 @@
     <meta name="if:infinite scroll" content="1" />
     <meta name="if:blog copyright" content="1" />
     <meta name="if:Darker Mode" content="0" />
+    <meta name="if:EvenDarker Mode" content="0" />
     <meta name="if:Dark Mode" content="0" />
     
     <meta name="color:Link" content="#446e9b"/>
@@ -67,6 +68,10 @@ body {
   background-color: #222;
   {/block:IfDarkerMode}
 
+  {block:IfEvenDarkerMode}
+  background-color: #222;
+  {/block:IfEvenDarkerMode}
+
   {block:IfDarkMode}
   background-color: #222;
   {/block:IfDarkMode}
@@ -78,27 +83,36 @@ header {
   left: 230px;
   right: 0px;
   
-  {block:IfDarkMode}
-  background-color: #222;
-  border-bottom: 1px #333 solid;
-  {/block:IfDarkMode}
-  
   {block:IfNotDarkMode}
   background-color: #fff;
   border-bottom: 1px #eee solid;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  background-color: #222;
+  border-bottom: 1px #333 solid;
+  {/block:IfEvenDarkerMode}
+  
+  {block:IfDarkMode}
+  background-color: #222;
+  border-bottom: 1px #333 solid;
+  {/block:IfDarkMode}
 }
 
 header h1 {
   line-height: 50px;
   
-  {block:IfDarkMode}
-  color: #eee;
-  {/block:IfDarkMode}
-  
   {block:IfNotDarkMode}
   color: #444;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  color: #eee;
+  {/block:IfEvenDarkerMode}
+  
+  {block:IfDarkMode}
+  color: #eee;
+  {/block:IfDarkMode}
   
   font-size: 18px;
   padding: 0;
@@ -111,23 +125,32 @@ header h1 span:first-child {
 
 .page-location a:link,
 .page-location a:visited {
+  {block:IfNotDarkMode}
+  color: #444;
+  {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  color: #eee;
+  {/block:IfEvenDarkerMode}
+  
   {block:IfDarkMode}
   color: #eee;
   {/block:IfDarkMode}
   
-  {block:IfNotDarkMode}
-  color: #444;
-  {/block:IfNotDarkMode}
 }
 .page-location a:hover,
 .page-location a:active {
-  {block:IfDarkMode}
-  color: #eee;
-  {/block:IfDarkMode}
-  
   {block:IfNotDarkMode}
   color: #444;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  color: #eee;
+  {/block:IfEvenDarkerMode}
+  
+  {block:IfDarkMode}
+  color: #eee;
+  {/block:IfDarkMode}
   
   text-decoration: underline;
 }
@@ -190,25 +213,33 @@ li {
 }
 
 a, a:link, a:visited {
-  {block:IfDarkMode}
-  color: #979da7;
-  {/block:IfDarkMode}
-  
   {block:IfNotDarkMode}
   color: #979da7;
   {/block:IfNotDarkMode}
 
+  {block:IfEvenDarkerMode}
+  color: #979da7;
+  {/block:IfEvenDarkerMode}
+  
+  {block:IfDarkMode}
+  color: #979da7;
+  {/block:IfDarkMode}
+  
   text-decoration: none;
 }
 
 a:active, a:hover {
-  {block:IfDarkMode}
-  color: #979da7;
-  {/block:IfDarkMode}
-  
   {block:IfNotDarkMode}
   color: #979da7;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  color: #979da7;
+  {/block:IfEvenDarkerMode}
+  
+  {block:IfDarkMode}
+  color: #979da7;
+  {/block:IfDarkMode}
 }
 
 a:active > li, a:hover > li {
@@ -273,6 +304,10 @@ article {
   color: #aaa;
   {/block:IfDarkerMode}
 
+  {block:IfEvenDarkerMode}
+  color: #aaa;
+  {/block:IfEvenDarkerMode}
+
   {block:IfDarkMode}
   color: #aaa;
   {/block:IfDarkMode}
@@ -297,6 +332,10 @@ article {
   {block:IfNotDarkMode}
   border-bottom: 1px solid #ddd;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  border-bottom: 1px solid #333;
+  {/block:IfEvenDarkerMode}
   
   {block:IfDarkMode}
   border-bottom: 1px solid #333;
@@ -313,6 +352,12 @@ article {
   border: 1px solid #ddd;
   border-bottom: 1px solid #fff;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  color: #eee;
+  border: 1px solid #333;
+  border-bottom: 1px solid #222;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   color: #eee;
@@ -346,6 +391,10 @@ article {
   {block:IfNotDarkMode}
   background: #f5f5f5;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  background: #272727;
+  {/block:IfEvenDarkerMode}
   
   {block:IfDarkMode}
   background: #272727;
@@ -360,6 +409,10 @@ article {
   {block:IfNotDarkMode}
   background-color: #eee;
   {/block:IfNotDarkMode}
+
+  {block:IfEvenDarkerMode}
+  background-color: #333;
+  {/block:IfEvenDarkerMode}
   
   {block:IfDarkMode}
   background-color: #333;
@@ -402,6 +455,10 @@ section a:active {
   color: #222;
   {/block:IfNotDarkMode}
 
+  {block:IfEvenDarkerMode}
+  color: #ddd;
+  {/block:IfEvenDarkerMode}
+
   {block:IfDarkMode}
   color: #ddd;
   {/block:IfDarkMode}
@@ -433,6 +490,10 @@ section a:active {
   {block:IfDarkerMode}
   background-color: #fff;
   {/block:IfDarkerMode}
+  
+  {block:IfEvenDarkerMode}
+  border-top: 1px solid #333;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   border-top: 1px solid #333;
@@ -444,6 +505,10 @@ section a:active {
   {block:IfNotDarkMode}
   background-color: #f9f9f9;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  background-color: #2c2c2c;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   background-color: #2c2c2c;
@@ -484,6 +549,10 @@ section a:active {
   {block:IfNotDarkMode}
   border-bottom: 1px solid #eee;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  border-bottom: 1px solid #333;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   border-bottom: 1px solid #333;
@@ -518,6 +587,10 @@ section a:active {
   {block:IfNotDarkMode}
   color: #222;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  color: #ddd;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   color: #ddd;
@@ -528,6 +601,10 @@ ol.notes {
   {block:IfNotDarkMode}
   color: #222;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  color: #ddd;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   color: #ddd;
@@ -540,6 +617,10 @@ blockquote {
   {block:IfNotDarkMode}
   border-left: 1px solid #979da7;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  border-left: 1px solid #979da7;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   border-left: 1px solid #979da7;
@@ -589,7 +670,7 @@ p {
   {/block:IfDarkerMode}
 
   {block:IfDarkMode}
-  color: #fff;
+  color: #eee;
   {/block:IfDarkMode}
 }
 
@@ -597,6 +678,12 @@ p {
   {block:IfNotDarkMode}
   border: 1px solid #eee;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  border: 1px solid #333;
+  color: #222;
+  background-color: #fff;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   border: 1px solid #333;
@@ -618,6 +705,10 @@ p {
   {block:IfNotDarkMode}
   border: 1px solid #eee;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  border: 1px solid #333;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   border: 1px solid #333;
@@ -648,6 +739,12 @@ p {
   border: 1px solid #eee;
   background-color: #fff;
   {/block:IfNotDarkMode}
+  
+  {block:IfEvenDarkerMode}
+  border: 1px solid #eee;
+  color: #222;
+  background-color: #fff;
+  {/block:IfEvenDarkerMode}
 
   {block:IfDarkMode}
   border: 1px solid #333;
