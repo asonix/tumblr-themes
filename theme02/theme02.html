@@ -298,15 +298,9 @@ article {
   border-bottom: 1px solid #dddddd;
   {/block:IfNotDarkMode}
   
-  {block:IfDarkerMode}
-  border-bottom: 1px solid #333;
-  {/block:IfDarkerMode}
-  
   {block:IfDarkMode}
   border-bottom: 1px solid #333;
   {/block:IfDarkMode}
-
-  margin-bottom: 15px;
 }
 
 .tab-line .tab {
@@ -319,12 +313,6 @@ article {
   border: 1px solid #dddddd;
   border-bottom: 1px solid #fff;
   {/block:IfNotDarkMode}
-  
-  {block:IfDarkerMode}
-  color: #eee;
-  border: 1px solid #333;
-  border-bottom: 1px solid #222;
-  {/block:IfDarkerMode}
 
   {block:IfDarkMode}
   color: #eee;
@@ -337,10 +325,19 @@ article {
 
 .tab-line .tab.active {
   margin-bottom: -1px;
+  {block:IfDarkerMode}
+  background-color: #fff;
+  {/block:IfDarkerMode}
+}
+
+.tab-pane {
+  {block:IfDarkerMode}
+  background-color: #fff;
+  {/block:IfDarkerMode}
 }
 
 .common-tags {
-  margin-bottom: 19px;
+  padding: 1em;
 }
 
 .common-tags .tag {
