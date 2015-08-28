@@ -939,10 +939,15 @@ function postNav() {
 
     function getNestedElementByClass(arr) {
         var elem = document.getElementsByClassName(arr[0])[0];
+        var elem2;
 
         var i;
         for (i = 1; i < arr.length; i += 1) {
-            elem = elem.getElementsByClassName(arr[i])[0];
+            elem2 = elem.getElementsByClassName(arr[i])[0];
+            if (elem2 && elem2.classList.contains('tumblr_controls')) {
+                elem2 = elem.getElementsByClassName(arr[i])[1];
+            }
+            elem = elem2;
         }
 
         return elem;
@@ -2237,8 +2242,8 @@ function postNav() {
         </section>
       </div>
     </div>
-    {block:IfInfiniteScroll}
-      {block:IndexPage}
+    {block:IndexPage}
+      {block:IfInfiniteScroll}
         <script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
        <script>
 var tumblrAutoPagerTwo = {
@@ -2506,12 +2511,12 @@ window.addEventListener ? window.addEventListener('load', tumblrAutoPagerTwo.ini
           watch('autopagerize_page_element', 'childElementCount', setUsername);
           watch('autopagerize_page_element', 'childElementCount', showPost);
 
-          postNav();
         </script>
       {/block:IfInfiniteScroll}
       <script>
         setUsername();
         showPost();
+        postNav();
       </script>
       
     {/block:IndexPage}
