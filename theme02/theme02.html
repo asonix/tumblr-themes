@@ -745,6 +745,7 @@ p {
 }
 
 .individual-post-article .post {
+  display: none;
   border-radius: 3px;
 
   {block:IfNotDarkMode}
@@ -852,12 +853,27 @@ function showPost() {
 
         var i;
         for (i = setItems; i < postsPostArticle.length; i += 1) {
-            postsPostArticle[i].onclick = articleClick();
+            postsPostArticle[i].onclick = articleClick('post_' + i);
+            copyContent('post_' + i, postsPostArticle[i]);
         }
         setItems = postsPostArticle.length;
     }
+    
+    function copyContent(id, from) {
+        var individualArticle = document.getElementsByClassName('individual-post-article')[0];
+        var individualList = individualArticle.getElementsByTagName('ol')[0];
+        console.log(from);
+        var expand = from.getElementsByClassName('expand-post')[0];
+        var li = expand.getElementsByTagName('li')[0];
+        li.id = id;
+        
+        individualList.appendChild(li);
+        
+        from.removeChild(expand);
+        console.log('copying content');
+    }
 
-    function articleClick() {
+    function articleClick(id) {
         return function (e) {
 
             var individualArticle = document.getElementsByClassName('individual-post-article')[0];
@@ -893,7 +909,15 @@ function showPost() {
             if (!turnOff) {
                 if (elem) {
                     elem.classList.add('active-link');
-                    individualList.innerHTML = elem.getElementsByClassName('expand-post')[0].innerHTML;
+                    var visiblePosts = individualList.getElementsByClassName('visible');
+                    
+                    for (i = 0; i < visiblePosts.length; i += 1) {
+                        if (visiblePosts[i].classList) {
+                            visiblePosts[i].classList.remove('visible');
+                        }
+                    }
+                    
+                    document.getElementById(id).classList.add('visible');
                     
                     if (likeArticle) {
                         if (likeArticle.classList.contains('article-visible')) {
