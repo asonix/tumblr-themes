@@ -740,12 +740,16 @@ p {
 
 .individual-post-article > ol {
   padding: 0px;
+  padding-top: 50px;
   margin: 0 15px;
   position: fixed;
+  top: 0;
+  max-height: 100vh;
+  overflow: auto;
 }
 
 .individual-post-article .post {
-  display: none;
+  visibility: hidden;
   border-radius: 3px;
 
   {block:IfNotDarkMode}
@@ -765,17 +769,22 @@ p {
   {/block:IfDarkMode}
 
   min-width: 500px;
-  max-height: 80vh;
-  overflow: auto;
+  width: 500px;
+  max-width: 500px;
+  
+  margin-right: 2em;
 }
 
 .individual-post-article .post blockquote {
   padding-right: 0;
 }
 
-.visible,
-.article-visible {
-  display: block !important;
+.visible{
+  visibility: visible !important;
+}
+
+.article-visible  {
+  display: block;
 }
 
 .bar-narrow {
@@ -822,14 +831,22 @@ function setUsername() {
     }
 }
 
-function watch(cname, id, callback) {
+function watch(cname, id, callback, arg1, arg2) {
     "use strict";
     var prev_id = document.getElementsByClassName(cname)[0][id];
     setInterval(function () {
         var curr_id = document.getElementsByClassName(cname)[0][id];
         if (curr_id !== prev_id) {
             prev_id = curr_id;
-            callback();
+            if (!arg1) {
+                callback();
+            } else {
+                if (!arg2) {
+                    callback(arg1);
+                } else {
+                    callback(arg1, arg2)
+                }
+            }
         }
     }, 40);
 }
@@ -874,15 +891,14 @@ function showPost() {
     function copyContent(id, from) {
         var individualArticle = document.getElementsByClassName('individual-post-article')[0];
         var individualList = individualArticle.getElementsByTagName('ol')[0];
-        console.log(from);
         var expand = from.getElementsByClassName('expand-post')[0];
         var li = expand.getElementsByTagName('li')[0];
         li.id = id;
+        li.classList.add('post-copy');
         
         individualList.appendChild(li);
         
         from.removeChild(expand);
-        console.log('copying content');
     }
 
     function articleClick(id) {
@@ -921,6 +937,8 @@ function showPost() {
                     }
                     
                     document.getElementById(id).classList.add('visible');
+                    document.getElementById(id).scrollIntoView();
+                    document.getElementById(id).parentElement.scrollTop -= 60;
                     
                     if (likeArticle) {
                         if (likeArticle.classList.contains('article-visible')) {
@@ -2192,6 +2210,179 @@ function postNav() {
         setUsername();
         showPost();
         postNav();
+      </script>
+      <script>
+function Hide(topBound, bottomBound) {
+  "use strict";
+  
+  topBound = topBound || 0;
+  bottomBound = bottomBound || 0;
+
+  var hiddenContent = {};
+  var already = 0;
+  var hideObj = this;
+
+  this.setStyles = function(elem) { };
+
+  function isShowing(elem, scrollElem) {
+    function posY(elem, scrollElem) {
+      var fromTop = 0;
+
+      while (!!elem && elem !== scrollElem) {
+        fromTop = fromTop + elem.offsetTop;
+        elem = elem.offsetParent;
+      }
+
+      return fromTop;
+    }
+
+    function viewHeight(scrollElem) {
+      if (scrollElem !== window) {
+        return scrollElem.clientHeight;
+      }
+      var de = document.documentElement;
+
+      if (!!window.innerWidth) {
+        return window.innerHeight;
+      }
+
+      if (de && !isNaN(de.clientHeight)) {
+        return de.clientHeight;
+      }
+
+      return 0;
+    }
+
+    function scrollY(scrollElem) {
+      if (scrollElem !== window) {
+        return scrollElem.scrollTop;
+      }
+
+      if (window.pageYOffset) {
+        return window.pageYOffset;
+      }
+
+      return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    }
+
+    var top = ((posY(elem, scrollElem)
+          > (scrollY(scrollElem)
+            - topBound))
+        && (posY(elem, scrollElem)
+          < (scrollY(scrollElem)
+            + viewHeight(scrollElem)
+            + bottomBound)));
+    var bottom = (((posY(elem, scrollElem)
+            + elem.clientHeight)
+          > (scrollY(scrollElem)
+            - topBound))
+        && ((posY(elem, scrollElem)
+            + elem.clientHeight)
+          < (scrollY(scrollElem)
+            + viewHeight(scrollElem)
+            + bottomBound)));
+    return top || bottom;
+  }
+
+  function showElem(elem) {
+    var id = elem.getAttribute('elem_id');
+    if (!!hiddenContent[id]) {
+      elem.innerHTML = hiddenContent[id];
+      elem.removeAttribute('style');
+      delete hiddenContent[id];
+    }
+  }
+
+  function hideElem(elem) {
+    var id = elem.getAttribute('elem_id');
+    var clientHeight = elem.clientHeight;
+
+    if (!hiddenContent[id] && clientHeight !== 0) {
+      elem.style.height = clientHeight + 'px';
+      hiddenContent[id] = elem.innerHTML;
+      elem.innerHTML = '';
+      hideObj.setStyles(elem);
+
+      if (elem.clientHeight === 0) {
+        showElem(elem);
+      }
+    }
+  }
+
+  function scrollFunc(elem, scrollElem) {
+    return function () {
+      if (!isShowing(elem, scrollElem)) {
+        hideElem(elem);
+      }
+      else {
+        showElem(elem);
+      }
+    };
+  }
+
+  this.hideMore = function(hideClass, scrollElem) {
+    scrollElem = scrollElem || window;
+    var elements = document.getElementsByClassName(hideClass);
+
+    var throttle = function(type, name, obj) {
+      obj = obj || window;
+
+      var running = false;
+      var func = function() {
+        if (running) { return; }
+        running = true;
+        requestAnimationFrame(function() {
+          obj.dispatchEvent(new CustomEvent(name));
+          running = false;
+        });
+      };
+      obj.addEventListener(type, func);
+    };
+
+    throttle ('scroll', 'optimizedScroll', scrollElem);
+
+    for (already; already < elements.length; already += 1) {
+      elements[already].setAttribute('elem_id', already);
+      scrollElem.addEventListener("optimizedScroll", scrollFunc(elements[already], scrollElem), false);
+    }
+  };
+}
+
+var hide = new Hide(100, 100);
+hide.hideMore('post-index');
+
+watch('autopagerize_page_element', 'childElementCount', hide.hideMore, 'post-index');
+
+var indArt = document.getElementsByClassName('individual-post-article')[0];
+var scrollOl = indArt.getElementsByTagName('ol')[0];
+
+var hide2 = new Hide(800, 800);
+hide2.hideMore('post-copy', scrollOl);
+
+watch('autopagerize_page_element', 'childElementCount', function() {
+    setTimeout(function() {
+        hide2.hideMore('post-copy', scrollOl);
+    }, 300);
+});
+
+/* Usage:
+ *
+ * var hide = new Hide();
+ * hide.setStyles = function(elem) {
+ *   elem.style.backgroundColor = "#fff";
+ * };
+ * hide.hideMore('className');
+ *
+ * OR
+ *
+ * var hide = new Hide();
+ * hide.setStyles = function(elem) {
+ *   elem.style.backgroundColor = "#fff";
+ * };
+ * var scrollElem = document.getElemenByID('scrollID');
+ * hide.hideMore('className', scrollElem);
+ *
+ */
       </script>
     {/block:IndexPage}
   </body>
