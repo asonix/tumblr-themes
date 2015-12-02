@@ -749,7 +749,7 @@ p {
 }
 
 .individual-post-article .post {
-  visibility: hidden;
+  visibility: visible;
   border-radius: 3px;
 
   {block:IfNotDarkMode}
@@ -779,7 +779,7 @@ p {
   padding-right: 0;
 }
 
-.visible{
+.visible {
   visibility: visible !important;
 }
 
@@ -791,10 +791,15 @@ p {
   display: none;
 }
 
-@media (max-width: 1500px) {
-  .individual-post-article {
-    display: none;
-  }
+#togglePost {
+  display: none;
+}
+
+.small-show {
+  display: none;
+}
+
+@media (max-width: 1500px) and (min-width: 1200px) {
   .bar-wide {
     display: none;
   }
@@ -812,6 +817,60 @@ p {
     width: 52px;
   }
 }
+
+@media (max-width: 870px) {
+  .bar-wide {
+    display: none;
+  }
+  .bar-narrow {
+    display: block;
+    text-align: center;
+  }
+  header {
+    left: 52px;
+  }
+  nav.sidebar {
+    min-width: 52px;
+  }
+  .sidebar .fixed {
+    width: 52px;
+  } 
+}
+
+@media (max-width: 1200px) {
+  .like-article {
+    display: none;
+  }
+  .small-show {
+    display: block;
+    margin-bottom: 1em;
+  }
+  .individual-post-article,
+  .post-article {
+    display: none;
+  }
+  .individual-post-article {
+    width: 100%;
+  }
+  .individual-post-article > ol {
+    position: relative;
+    width: 100%;
+    padding-top: 0;
+    max-height: none;
+  }
+  .individual-post-article > ol > li.post {
+    margin-left: auto;
+    margin-right: auto;
+    visibility: visible;
+  }
+  .active-article {
+    display: block;
+  }
+  #togglePost {
+    display: block;
+  }
+}
+
     </style>
     <script>
 
@@ -1027,6 +1086,7 @@ function postNav() {
 
     initialize();
 }
+
     </script>
 
   </head>
@@ -1100,6 +1160,7 @@ function postNav() {
               {block:IfBlogCopyright}
               <a href="/"><li>&copy; - {Title} {CopyrightYears}</li></a>
               {/block:IfBlogCopyright}
+              <a href="#" title="Post View" id="togglePost2"><li>PV - Post View</li></a>
             </ul>
             <ul class="bar-narrow">
               <a href="/" {block:IndexPage}class="sidebar-selected"{/block:IndexPage} title="Posts"><li>P</li></a>
@@ -1130,6 +1191,7 @@ function postNav() {
               {block:IfBlogCopyright}
               <a href="/" title="Blog &copy; {Title} {CopyrightYears}"><li>&copy;</li></a>
               {/block:IfBlogCopyright}
+              <a href="#" title="Post View" id="togglePost"><li>PV</li></a>
             </ul>
             <ul class="theme-copyright bar-wide">
               <a href="https://asonix.tumblr.com"><li><img src="http://38.media.tumblr.com/avatar_555f1a0f021e_40.png" id="title-logo" alt="Logo"><span>Theme &copy; Asonix</span></li></a>
@@ -1169,6 +1231,21 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post text">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">text post</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">text post</a>
+                                {/block:NotReblog}
+                              </div>
                               {block:Title}
                                 <h3><a href="{Permalink}">{Title}</a></h3>
                               {/block:Title}
@@ -1227,6 +1304,23 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post answer">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">answer</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+    
+                                {block:NotReblog}
+                                  <span>answered a</span>
+                                  <a href="{permalink}" class="bold">question</a>
+                                  <span>from</span>
+                                  <span>{Asker}</span>
+                                {/block:NotReblog}
+                              </div>
                               <div class="question">
                                 <img class="asker-portrait" src="{AskerPortraitURL-24}">{Asker}
                                 <span>asked:</span>
@@ -1295,6 +1389,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post photo">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">photo</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">photo post</a>
+                                {/block:NotReblog}
+                              </div>
                               <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
 
                               {block:Caption}
@@ -1353,6 +1463,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post panorama">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">panorama</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+    
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">panorama</a>
+                                {/block:NotReblog}
+                              </div>
                               {LinkOpenTag}
                                 <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
                               {LinkCloseTag}
@@ -1413,6 +1539,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post photoset">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">photoset</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">photoset</a>
+                                {/block:NotReblog}
+                              </div>
                               {Photoset-500}
 
                               {block:Caption}
@@ -1471,6 +1613,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post quote">
+                              <div class="small-show">
+                              <a href="{BlogURL}"><span>{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">quote</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+    
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">quote post</a></a>
+                                {/block:NotReblog}
+                              </div>
                               "{Quote}"
 
                               {block:Source}
@@ -1529,6 +1687,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post link">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span class="username"></span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">link</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+    
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">link post</a>
+                                {/block:NotReblog}
+                              </div>
                               <a href="{URL}" class="link" {Target}>{Name}</a>
 
                               {block:Description}
@@ -1587,6 +1761,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post chat">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span class="username">{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">chat</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">chat post</a>
+                                {/block:NotReblog}
+                              </div>
                               {block:Title}
                                 <h3><a href="{Permalink}">{Title}</a></h3>
                               {/block:Title}
@@ -1654,6 +1844,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post video">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">video</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+        
+                                {block:NotReblog}
+                                  <span>made a</span>
+                                  <a href="{permalink}" class="bold">video post</a>
+                                {/block:NotReblog}
+                              </div>
                               {Video-500}{block:Caption}
                                 <div class="caption">{Caption}</div>
                               {/block:Caption}
@@ -1710,6 +1916,22 @@ function postNav() {
                         <li class="post post-index" title="Click to show post">
                           <ol class="expand-post">
                             <li class="post audio">
+                              <div class="small-show">
+                                <a href="{BlogURL}"><span>{Name}</span></a>
+
+                                {block:RebloggedFrom}
+                                  <span>reblogged</span>
+                                  <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                                  <a href="{permalink}" class="bold">audio</a>
+                                  <span>from</span>
+                                  <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                {/block:RebloggedFrom}
+        
+                                {block:NotReblog}
+                                  <span>made an</span>
+                                  <a href="{permalink}" class="bold">audio post</a>
+                                {/block:NotReblog}
+                              </div>
                               {AudioEmbed}{block:Caption}
                                 <div class="caption">{Caption}</div>
                               {/block:Caption}
@@ -1732,17 +1954,17 @@ function postNav() {
                           <a href="{BlogURL}"><img src="{PortraitURL-24}" class="post-portrait" alt="portrait"></a><a href="{BlogURL}"><span>{Name}</span></a>
 
                           {block:RebloggedFrom}
-                          <span>reblogged</span>
-                          <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
-                          <a href="{permalink}" class="bold">audio</a>
-                          <span>from</span>
-                          <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                        {/block:RebloggedFrom}
+                            <span>reblogged</span>
+                            <a href="{ReblogRootURL}">{ReblogRootName}'s</a>
+                            <a href="{permalink}" class="bold">audio</a>
+                            <span>from</span>
+                            <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                          {/block:RebloggedFrom}
 
-                        {block:NotReblog}
-                          <span>made an</span>
-                          <a href="{permalink}" class="bold">audio post</a>
-                        {/block:NotReblog}
+                          {block:NotReblog}
+                            <span>made an</span>
+                            <a href="{permalink}" class="bold">audio post</a>
+                          {/block:NotReblog}
 
                           {block:Date}
                             <span class="timeago">about {TimeAgo}</span>
@@ -2176,9 +2398,27 @@ function postNav() {
 
 
           {block:IndexPage}
-          <article class="individual-post-article">
+          <article class="individual-post-article active-article">
             <ol>
             </ol>
+            <div class="small-show">
+              {block:IfNotInfiniteScroll}
+                <ol>
+                  {block:Pagination}
+                    <li id="links">
+                      {block:PreviousPage}
+                        <a href="{PreviousPage}">&#171; Previous</a>
+                      {/block:PreviousPage}
+                      Page: {CurrentPage}
+                      {block:NextPage}
+                        <a href="{NextPage}">Next &#187;</a>
+                      {/block:NextPage}
+                      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/archive">Archive</a>
+                    </li>
+                  {/block:Pagination}
+                </ol>
+              {/block:IfNotInfiniteScroll}
+            </div>
           </article>
           {block:Likes}
             <article class="like-article article-visible">
@@ -2358,6 +2598,33 @@ watch('autopagerize_page_element', 'childElementCount', function() {
     setTimeout(function() {
         hide2.hideMore('post-copy', scrollOl);
     }, 300);
+});
+
+var postView = document.getElementById('togglePost');
+var postView2 = document.getElementById('togglePost2');
+var postArticle = document.getElementsByClassName('post-article')[0];
+var individualPostArticle = document.getElementsByClassName('individual-post-article')[0];
+
+postView.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (postArticle.classList.contains('active-article')) {
+        postArticle.classList.remove('active-article');
+        individualPostArticle.classList.add('active-article');
+    } else {
+        individualPostArticle.classList.remove('active-article');
+        postArticle.classList.add('active-article');
+    }
+});
+
+postView2.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (postArticle.classList.contains('active-article')) {
+        postArticle.classList.remove('active-article');
+        individualPostArticle.classList.add('active-article');
+    } else {
+        individualPostArticle.classList.remove('active-article');
+        postArticle.classList.add('active-article');
+    }
 });
 
 /* Usage:
