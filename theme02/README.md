@@ -16,7 +16,7 @@ This is my second theme. As you might be able to tell, I was mostly just trying 
 >Dark variant
 
 ###When the window is smaller, the sidebar collapses to save space:
-![theme-02-9.png](https://raw.githubusercontent.com/asonix/tumblr-themes/master/theme02/theme-02-7.png)
+![theme-02-9.png](https://raw.githubusercontent.com/asonix/tumblr-themes/master/theme02/theme-02-9.png)
 >Collapsing Sidebar
 
 ![theme-02-10.png](https://raw.githubusercontent.com/asonix/tumblr-themes/master/theme02/theme-02-10.png)
