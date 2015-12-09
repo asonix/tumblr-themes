@@ -791,7 +791,8 @@ p {
   display: none;
 }
 
-#togglePost {
+#togglePost,
+#togglePost2 {
   display: none;
 }
 
@@ -834,7 +835,7 @@ p {
   }
   .sidebar .fixed {
     width: 52px;
-  }
+  } 
 }
 
 @media (max-width: 1200px) {
@@ -845,30 +846,33 @@ p {
     display: block;
     margin-bottom: 1em;
   }
-  .individual-post-article,
-  .post-article {
-    display: none;
-  }
-  .individual-post-article {
-    width: 100%;
-  }
-  .individual-post-article > ol {
-    position: relative;
-    width: 100%;
-    padding-top: 0;
-    max-height: none;
-  }
-  .individual-post-article > ol > li.post {
-    margin-left: auto;
-    margin-right: auto;
-    visibility: visible;
-  }
-  .active-article {
-    display: block;
-  }
-  #togglePost {
-    display: block;
-  }
+  {block:IndexPage}
+    .individual-post-article,
+    .post-article {
+      display: none;
+    }
+    .individual-post-article {
+      width: 100%;
+    }
+    .individual-post-article > ol {
+      position: relative;
+      width: 100%;
+      padding-top: 0;
+      max-height: none;
+    }
+    .individual-post-article > ol > li.post {
+      margin-left: auto;
+      margin-right: auto;
+      visibility: visible;
+    }
+    .active-article {
+      display: block;
+    }
+    #togglePost,
+    #togglePost2 {
+      display: block;
+    }
+  {/block:IndexPage}
 }
 
     </style>
@@ -1313,7 +1317,7 @@ function postNav() {
                                   <span>from</span>
                                   <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                 {/block:RebloggedFrom}
-
+    
                                 {block:NotReblog}
                                   <span>answered a</span>
                                   <a href="{permalink}" class="bold">question</a>
@@ -1473,7 +1477,7 @@ function postNav() {
                                   <span>from</span>
                                   <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                 {/block:RebloggedFrom}
-
+    
                                 {block:NotReblog}
                                   <span>made a</span>
                                   <a href="{permalink}" class="bold">panorama</a>
@@ -1623,7 +1627,7 @@ function postNav() {
                                   <span>from</span>
                                   <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                 {/block:RebloggedFrom}
-
+    
                                 {block:NotReblog}
                                   <span>made a</span>
                                   <a href="{permalink}" class="bold">quote post</a></a>
@@ -1697,7 +1701,7 @@ function postNav() {
                                   <span>from</span>
                                   <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                 {/block:RebloggedFrom}
-
+    
                                 {block:NotReblog}
                                   <span>made a</span>
                                   <a href="{permalink}" class="bold">link post</a>
@@ -1854,7 +1858,7 @@ function postNav() {
                                   <span>from</span>
                                   <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                 {/block:RebloggedFrom}
-
+        
                                 {block:NotReblog}
                                   <span>made a</span>
                                   <a href="{permalink}" class="bold">video post</a>
@@ -1926,7 +1930,7 @@ function postNav() {
                                   <span>from</span>
                                   <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                 {/block:RebloggedFrom}
-
+        
                                 {block:NotReblog}
                                   <span>made an</span>
                                   <a href="{permalink}" class="bold">audio post</a>
@@ -2438,7 +2442,7 @@ function postNav() {
     </div>
     {block:IndexPage}
       {block:IfInfiniteScroll}
-        <script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+        <script type="text/javascript" src="http://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js"></script>
 
         <script>
           watch('autopagerize_page_element', 'childElementCount', setUsername);
