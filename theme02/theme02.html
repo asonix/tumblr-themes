@@ -799,8 +799,12 @@ p {
 .small-show {
   display: none;
 }
-
+{block:IndexPage}
 @media (max-width: 1500px) and (min-width: 1200px) {
+{/block:IndexPage}
+{block:PermalinkPage}
+@media (max-width: 1500px) {
+{/block:PermalinkPage}
   .bar-wide {
     display: none;
   }
@@ -838,15 +842,15 @@ p {
   } 
 }
 
-@media (max-width: 1200px) {
-  .like-article {
-    display: none;
-  }
-  .small-show {
-    display: block;
-    margin-bottom: 1em;
-  }
-  {block:IndexPage}
+{block:IndexPage}
+  @media (max-width: 1200px) {
+    .like-article {
+      display: none;
+    }
+    .small-show {
+      display: block;
+      margin-bottom: 1em;
+    }
     .individual-post-article,
     .post-article {
       display: none;
@@ -872,8 +876,8 @@ p {
     #togglePost2 {
       display: block;
     }
-  {/block:IndexPage}
-}
+  }
+{/block:IndexPage}
 
     </style>
     <script>
